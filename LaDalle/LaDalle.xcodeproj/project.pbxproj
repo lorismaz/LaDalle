@@ -27,7 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		AB33CCEB1D8C56EA002E4BA4 /* LaDalle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LaDalle.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB33CCEB1D8C56EA002E4BA4 /* La Dalle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "La Dalle.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB33CCEE1D8C56EA002E4BA4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AB33CCF31D8C56EA002E4BA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AB33CCF51D8C56EA002E4BA4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -70,7 +70,7 @@
 		AB33CCEC1D8C56EA002E4BA4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				AB33CCEB1D8C56EA002E4BA4 /* LaDalle.app */,
+				AB33CCEB1D8C56EA002E4BA4 /* La Dalle.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -135,9 +135,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		AB33CCEA1D8C56EA002E4BA4 /* LaDalle */ = {
+		AB33CCEA1D8C56EA002E4BA4 /* La Dalle */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AB33CCFD1D8C56EA002E4BA4 /* Build configuration list for PBXNativeTarget "LaDalle" */;
+			buildConfigurationList = AB33CCFD1D8C56EA002E4BA4 /* Build configuration list for PBXNativeTarget "La Dalle" */;
 			buildPhases = (
 				AB33CCE71D8C56EA002E4BA4 /* Sources */,
 				AB33CCE81D8C56EA002E4BA4 /* Frameworks */,
@@ -147,9 +147,9 @@
 			);
 			dependencies = (
 			);
-			name = LaDalle;
+			name = "La Dalle";
 			productName = LaDalle;
-			productReference = AB33CCEB1D8C56EA002E4BA4 /* LaDalle.app */;
+			productReference = AB33CCEB1D8C56EA002E4BA4 /* La Dalle.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -182,7 +182,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				AB33CCEA1D8C56EA002E4BA4 /* LaDalle */,
+				AB33CCEA1D8C56EA002E4BA4 /* La Dalle */,
 			);
 		};
 /* End PBXProject section */
@@ -375,7 +375,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AB33CCFD1D8C56EA002E4BA4 /* Build configuration list for PBXNativeTarget "LaDalle" */ = {
+		AB33CCFD1D8C56EA002E4BA4 /* Build configuration list for PBXNativeTarget "La Dalle" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AB33CCFE1D8C56EA002E4BA4 /* Debug */,
