@@ -177,37 +177,37 @@
         <scene sceneID="xDK-is-WyO">
             <objects>
                 <tableViewController id="MJn-MQ-XEC" customClass="CategoryTableViewController" customModule="La_Dalle" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="208" sectionHeaderHeight="28" sectionFooterHeight="28" id="sjA-1F-HLr">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="58" sectionHeaderHeight="28" sectionFooterHeight="28" id="sjA-1F-HLr">
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="sectionIndexBackgroundColor" red="0.17254901959999999" green="0.24313725489999999" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="categoryCell" rowHeight="215" id="a2X-rO-gN8" customClass="CategoryCell" customModule="La_Dalle" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="215"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="categoryCell" rowHeight="58" id="a2X-rO-gN8" customClass="CategoryCell" customModule="La_Dalle" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="58"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="a2X-rO-gN8" id="iNj-mO-eiP">
-                                    <frame key="frameInset" width="375" height="215"/>
+                                    <frame key="frameInset" width="375" height="58"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Fu-Th-1XH">
                                             <subviews>
-                                                <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="eI2-N0-7mU"/>
                                                 <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KhY-Da-PnN">
                                                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="2ex-av-4O4">
                                                         <frame key="frameInset"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3W8-Dd-n1w">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3W8-Dd-n1w">
                                                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="37"/>
                                                                 <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                         </subviews>
                                                         <constraints>
-                                                            <constraint firstItem="3W8-Dd-n1w" firstAttribute="width" secondItem="2ex-av-4O4" secondAttribute="width" multiplier="0.95" id="Gxj-NS-wAU"/>
-                                                            <constraint firstItem="3W8-Dd-n1w" firstAttribute="centerX" secondItem="2ex-av-4O4" secondAttribute="centerX" id="mBP-r6-qI7"/>
-                                                            <constraint firstItem="3W8-Dd-n1w" firstAttribute="centerY" secondItem="2ex-av-4O4" secondAttribute="centerY" id="tGo-0W-USm"/>
+                                                            <constraint firstItem="3W8-Dd-n1w" firstAttribute="width" secondItem="2ex-av-4O4" secondAttribute="width" multiplier="0.9" id="3cf-M1-7NC"/>
+                                                            <constraint firstItem="3W8-Dd-n1w" firstAttribute="centerX" secondItem="2ex-av-4O4" secondAttribute="centerX" id="4Id-ch-SER"/>
+                                                            <constraint firstAttribute="bottom" secondItem="3W8-Dd-n1w" secondAttribute="bottom" id="Dwd-LG-49R"/>
+                                                            <constraint firstItem="3W8-Dd-n1w" firstAttribute="top" secondItem="2ex-av-4O4" secondAttribute="top" id="U5s-Ni-1Xx"/>
                                                         </constraints>
                                                     </view>
                                                     <color key="backgroundColor" red="0.17254901960784313" green="0.24313725490196078" blue="0.31372549019607843" alpha="0.67000000000000004" colorSpace="calibratedRGB"/>
@@ -220,11 +220,7 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstItem="KhY-Da-PnN" firstAttribute="centerX" secondItem="2Fu-Th-1XH" secondAttribute="centerX" id="8uc-FY-hOe"/>
-                                                <constraint firstAttribute="bottom" secondItem="eI2-N0-7mU" secondAttribute="bottom" id="DG6-Yz-U9q"/>
-                                                <constraint firstAttribute="trailing" secondItem="eI2-N0-7mU" secondAttribute="trailing" id="LvT-WN-Bpy"/>
-                                                <constraint firstItem="eI2-N0-7mU" firstAttribute="leading" secondItem="2Fu-Th-1XH" secondAttribute="leading" id="Ray-uD-SUZ"/>
-                                                <constraint firstItem="eI2-N0-7mU" firstAttribute="top" secondItem="2Fu-Th-1XH" secondAttribute="top" id="UVB-ac-Nbp"/>
-                                                <constraint firstItem="KhY-Da-PnN" firstAttribute="width" secondItem="eI2-N0-7mU" secondAttribute="width" id="c9H-9f-8Ls"/>
+                                                <constraint firstItem="KhY-Da-PnN" firstAttribute="width" secondItem="2Fu-Th-1XH" secondAttribute="width" id="JRo-iM-NhM"/>
                                                 <constraint firstAttribute="bottom" secondItem="KhY-Da-PnN" secondAttribute="bottom" id="zc1-uR-T0S"/>
                                             </constraints>
                                         </view>

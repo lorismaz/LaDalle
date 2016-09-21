@@ -234,11 +234,6 @@ struct Category {
         //        call yelp to get results with location.
         return count
     }
-    
-    func getImage(for category: String) -> UIImage? {
-        //make an api call for the category name
-        //return the imageurl of the first business in the array
-    }
 }
 
 
