@@ -15,15 +15,21 @@ class Business {
     let coordinates: Coordinates
     let rating: Double
     let reviewCount: Int
+    let imageUrl: String
     //let photos: [String]
     
-    init(name: String, id: String, location: Location, coordinates: Coordinates, rating: Double, reviewCount: Int) {
+    init(name: String, id: String, location: Location, coordinates: Coordinates, rating: Double, reviewCount: Int, imageUrl: String) {
         self.name = name
         self.id = id
         self.location = location
         self.coordinates = coordinates
         self.rating = rating
         self.reviewCount = reviewCount
+        self.imageUrl = imageUrl
+    }
+    
+    func loadImage(from url: String) {
+        print(url)
     }
     
     static func fromDictionary(dictionary: NSDictionary) -> Business? {
@@ -32,7 +38,8 @@ class Business {
         guard let name = dictionary["name"] as? String,
             let id = dictionary["id"] as? String,
             let rating = dictionary["rating"] as? Double,
-            let reviewCount = dictionary["review_count"] as? Int
+            let reviewCount = dictionary["review_count"] as? Int,
+            let imageUrl = dictionary["image_url"] as? String
             else {
                 print("Error creating object from dictionary")
                 return nil
@@ -52,7 +59,7 @@ class Business {
         
         
         //Take the data parsed and create a Place Object from it
-        return Business(name: name, id: id, location: locationObject, coordinates: coordinatesObject, rating: rating, reviewCount: reviewCount)
+        return Business(name: name, id: id, location: locationObject, coordinates: coordinatesObject, rating: rating, reviewCount: reviewCount, imageUrl: imageUrl)
     }
     
 }

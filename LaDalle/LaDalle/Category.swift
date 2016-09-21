@@ -8,10 +8,13 @@
 
 import Foundation
 
+//make a image, get it from yelp.getFirstImageForCategory)
+
+
 struct Category {
     let title: String
     let alias: String
-    
+
     static func fromDictionary(dictionary: NSDictionary) -> Category? {
         
         //Pull out each individual element from the dictionary
