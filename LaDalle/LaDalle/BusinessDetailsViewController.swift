@@ -30,7 +30,7 @@ class BusinessDetailsViewController: UIViewController {
             businessImageView.image = image
         }
         //businessReviewImageView.image
-        businessReviewCountLabel.text = String(business.reviewCount) + " reviews."
+        businessReviewCountLabel.text = "Based on " + String(business.reviewCount) + " reviews."
         
         // Do any additional setup after loading the view.
     }
