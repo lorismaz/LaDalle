@@ -90,7 +90,12 @@ class BusinessTableViewController: UITableViewController {
         let business = businesses[row]
         
         cell.businessNameLabel.text = business.name
-        print(business.imageUrl)
+        
+        if let image = Business.getImage(from: business.imageUrl) {
+            cell.businessImageView.image = image
+        }
+        
+        //print(business.imageUrl)
         
 //        cell.businessImageView.image = business.imageUrl
 
@@ -100,10 +105,29 @@ class BusinessTableViewController: UITableViewController {
 
     // MARK: - Navigation
 
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let row = indexPath.row
+        let business = businesses[row]
+        
+        displayBusiness(business: business)
+    }
+    
+    func displayBusiness(business: Business) {
+        performSegue(withIdentifier: "ToBusinessDetail", sender: business)
+    }
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        // pass Business data
+        if segue.identifier == "ToBusinessDetail" {
+            
+            guard let business = sender as? Business else { return }
+            guard let businessDetailViewController = segue.destination as? BusinessDetailsViewController else { return }
+            
+            businessDetailViewController.business = business
+        }
+        
     }
 
 }
