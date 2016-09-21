@@ -6,9 +6,9 @@
 //  Copyright © 2016 Loris Mazloum. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
-//make a image, get it from yelp.getFirstImageForCategory)
+
 
 
 struct Category {
@@ -226,6 +226,18 @@ struct Category {
         ]
         
         return categories
+    }
+    
+    static func getCount(for coordinates: Coordinates) -> Int {
+        var count = 0
+        //for each category
+        //        call yelp to get results with location.
+        return count
+    }
+    
+    func getImage(for category: String) -> UIImage? {
+        //make an api call for the category name
+        //return the imageurl of the first business in the array
     }
 }
 
