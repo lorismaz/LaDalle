@@ -13,10 +13,13 @@ class BusinessDetailsViewController: UIViewController {
     
     var business: Business?
     
-    @IBOutlet weak var businessImageView: UIImageView!
+    @IBOutlet weak var businessMapView: MKMapView!
+
     @IBOutlet weak var businessNameLabel: UILabel!
     @IBOutlet weak var businessReviewImageView: UIImageView!
     @IBOutlet weak var businessReviewCountLabel: UILabel!
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,9 +29,9 @@ class BusinessDetailsViewController: UIViewController {
         //let businessDetails = Business.getDetails(for: business)
         businessNameLabel.text = business.name
         //businessImageView.image = business.loadImage(from: business.imageUrl)
-        if let image = Business.getImage(from: business.imageUrl) {
-            businessImageView.image = image
-        }
+//        if let image = Business.getImage(from: business.imageUrl) {
+//            businessImageView.image = image
+//        }
         
         var ratingImageName = "rating0"
         

@@ -32,7 +32,6 @@
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rOK-FE-qJv" customClass="DetailView" customModule="La_Dalle" customModuleProvider="target">
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="AMg-h6-v1n"/>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ebq-1g-NLs">
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Business Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cfk-Zx-bgP">
@@ -63,16 +62,18 @@
                                                         <constraint firstAttribute="height" constant="100" id="Uc7-5M-HVG"/>
                                                     </constraints>
                                                 </view>
+                                                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LB5-8a-CkX"/>
                                             </subviews>
                                             <color key="backgroundColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
-                                                <constraint firstItem="AMg-h6-v1n" firstAttribute="top" secondItem="rOK-FE-qJv" secondAttribute="top" id="4pP-6Y-1lP"/>
-                                                <constraint firstItem="AMg-h6-v1n" firstAttribute="width" secondItem="rOK-FE-qJv" secondAttribute="width" id="BUe-tv-IVi"/>
-                                                <constraint firstItem="ebq-1g-NLs" firstAttribute="top" secondItem="AMg-h6-v1n" secondAttribute="bottom" id="Ira-66-JnT"/>
-                                                <constraint firstItem="AMg-h6-v1n" firstAttribute="centerX" secondItem="rOK-FE-qJv" secondAttribute="centerX" id="QKv-30-psd"/>
-                                                <constraint firstItem="AMg-h6-v1n" firstAttribute="height" secondItem="rOK-FE-qJv" secondAttribute="height" multiplier="0.45" id="SSl-ui-ldX"/>
+                                                <constraint firstItem="LB5-8a-CkX" firstAttribute="height" secondItem="rOK-FE-qJv" secondAttribute="height" multiplier="0.45" id="Ja5-hn-QaO"/>
                                                 <constraint firstItem="ebq-1g-NLs" firstAttribute="width" secondItem="rOK-FE-qJv" secondAttribute="width" id="StM-DP-GUu"/>
                                                 <constraint firstItem="ebq-1g-NLs" firstAttribute="centerX" secondItem="rOK-FE-qJv" secondAttribute="centerX" id="fGk-D9-hgp"/>
+                                                <constraint firstItem="LB5-8a-CkX" firstAttribute="leading" secondItem="rOK-FE-qJv" secondAttribute="leading" id="n5A-z2-sJ3"/>
+                                                <constraint firstItem="LB5-8a-CkX" firstAttribute="top" secondItem="rOK-FE-qJv" secondAttribute="top" id="noy-Nw-CsH"/>
+                                                <constraint firstItem="ebq-1g-NLs" firstAttribute="top" secondItem="LB5-8a-CkX" secondAttribute="bottom" id="oQ3-Jf-cKB"/>
+                                                <constraint firstAttribute="trailing" secondItem="LB5-8a-CkX" secondAttribute="trailing" id="t5L-sj-LCB"/>
+                                                <constraint firstItem="LB5-8a-CkX" firstAttribute="width" secondItem="rOK-FE-qJv" secondAttribute="width" id="uEg-aS-b4V"/>
                                             </constraints>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -135,7 +136,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="businessImageView" destination="AMg-h6-v1n" id="LvJ-IN-Cz7"/>
+                        <outlet property="BusinessMapView" destination="LB5-8a-CkX" id="Iqw-sQ-h2i"/>
+                        <outlet property="businessMapView" destination="LB5-8a-CkX" id="6Qe-W8-b4m"/>
                         <outlet property="businessNameLabel" destination="cfk-Zx-bgP" id="we9-bX-uxq"/>
                         <outlet property="businessReviewCountLabel" destination="xG0-b6-GT0" id="egC-sa-eI6"/>
                         <outlet property="businessReviewImageView" destination="LkJ-Hs-VvI" id="fgp-IJ-gK9"/>
@@ -329,7 +331,7 @@
         <scene sceneID="qEV-tH-khq">
             <objects>
                 <tableViewController id="ehS-1e-rMs" customClass="BusinessTableViewController" customModule="La_Dalle" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="336" sectionHeaderHeight="28" sectionFooterHeight="28" id="xSB-aQ-6yx">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="336" sectionHeaderHeight="28" sectionFooterHeight="28" id="xSB-aQ-6yx">
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
