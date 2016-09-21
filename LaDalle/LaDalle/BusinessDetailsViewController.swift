@@ -10,16 +10,30 @@ import UIKit
 import MapKit
 
 class BusinessDetailsViewController: UIViewController {
-
-    @IBOutlet weak var mapOutlet: MKMapView!
-    @IBOutlet weak var actionsTableView: UITableView!
+    
+    var business: Business?
+    
+    @IBOutlet weak var businessImageView: UIImageView!
+    @IBOutlet weak var businessNameLabel: UILabel!
+    @IBOutlet weak var businessReviewImageView: UIImageView!
+    @IBOutlet weak var businessReviewCountLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //actionsTableView.delegate = self
-        //actionsTableView.dataSource = self
+        
+        guard let business = business else { return }
+        
+        //let businessDetails = Business.getDetails(for: business)
+        businessNameLabel.text = business.name
+        //businessImageView.image = business.loadImage(from: business.imageUrl)
+        if let image = Business.getImage(from: business.imageUrl) {
+            businessImageView.image = image
+        }
+        //businessReviewImageView.image
+        businessReviewCountLabel.text = String(business.reviewCount) + " reviews."
+        
         // Do any additional setup after loading the view.
     }
-
     
+        
 }
