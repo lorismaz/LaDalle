@@ -16,7 +16,6 @@ class Business {
     let rating: Double
     let reviewCount: Int
     let imageUrl: String
-    //let photos: [String]
     
     init(name: String, id: String, location: Location, coordinates: Coordinates, rating: Double, reviewCount: Int, imageUrl: String) {
         self.name = name
@@ -45,9 +44,6 @@ class Business {
                 return nil
         }
         
-        // create photo array
-        // guard let photos = dictionary["photos"] as? [String] else { return nil }
-        
         
         //create location
         guard let locationDictionary = dictionary["location"] as? NSDictionary else { return nil }
@@ -72,15 +68,40 @@ class Business {
             guard let image = UIImage(data: imageData) else { return nil }
             return image
         } catch {
-            print("Could not create an image out of your link")
+            print("Could not create an image out of provided link")
         }
         
         return nil
     }
     
-    class func getLocalPlaces(forCategory category: String, coordinates: Coordinates, completionHandler: @escaping ([Business]) -> ()) {
+    static func getRatingImage(rating: Double) -> String {
         
-        let dataManager = DataManager.sharedInstance
+        switch rating {
+        case 5:
+            return "rating50"
+        case 4.5:
+            return "rating45"
+        case 4:
+            return "rating40"
+        case 3.5:
+            return "rating35"
+        case 3:
+            return "rating30"
+        case 2.5:
+            return "rating25"
+        case 2:
+            return "rating20"
+        case 1.5:
+            return "rating15"
+        case 1:
+            return "rating10"
+        default:
+            return "rating0"
+        }
+    }
+
+    
+    static func getLocalPlaces(forCategory category: String, coordinates: Coordinates, completionHandler: @escaping ([Business]) -> ()) {
         
         var arrayOfBusinesses: [Business] = []
         
@@ -165,8 +186,6 @@ class Business {
                 print("Could not get places")
                 return
             }
-            
-            dataManager.businesses = arrayOfBusinesses
             
         }
         
