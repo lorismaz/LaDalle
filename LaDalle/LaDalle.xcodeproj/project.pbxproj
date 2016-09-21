@@ -26,7 +26,6 @@
 		ABA823941D907A7600F618D2 /* Coordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA823931D907A7600F618D2 /* Coordinates.swift */; };
 		ABA823961D907A9900F618D2 /* Business.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA823951D907A9900F618D2 /* Business.swift */; };
 		ABA8239A1D90A8F600F618D2 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA823991D90A8F600F618D2 /* CategoryCell.swift */; };
-		ABC074E01D91C6A300D0E4D5 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC074DF1D91C6A300D0E4D5 /* DataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,7 +50,6 @@
 		ABA823931D907A7600F618D2 /* Coordinates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinates.swift; sourceTree = "<group>"; };
 		ABA823951D907A9900F618D2 /* Business.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Business.swift; sourceTree = "<group>"; };
 		ABA823991D90A8F600F618D2 /* CategoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
-		ABC074DF1D91C6A300D0E4D5 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,7 +123,6 @@
 				ABA823911D907A5D00F618D2 /* Category.swift */,
 				ABA823931D907A7600F618D2 /* Coordinates.swift */,
 				ABA823951D907A9900F618D2 /* Business.swift */,
-				ABC074DF1D91C6A300D0E4D5 /* DataManager.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -237,7 +234,6 @@
 				ABA823961D907A9900F618D2 /* Business.swift in Sources */,
 				ABA823881D90514600F618D2 /* ApiKeys.swift in Sources */,
 				ABA823841D904E8A00F618D2 /* Yelp.swift in Sources */,
-				ABC074E01D91C6A300D0E4D5 /* DataManager.swift in Sources */,
 				ABA8239A1D90A8F600F618D2 /* CategoryCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

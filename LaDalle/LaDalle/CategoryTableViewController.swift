@@ -45,11 +45,6 @@ class CategoryTableViewController: UITableViewController, CLLocationManagerDeleg
                     
                     print("Location \(location.coordinate.latitude) x \(location.coordinate.longitude)")
                     
-                    
-                    // move this to
-                    //yelp.getLocalPlaces(forCategory: "sushi", coordinates: coordinates)
-                    
-                    
                 }
             }
         }
