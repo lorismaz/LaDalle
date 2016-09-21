@@ -29,6 +29,34 @@ class BusinessDetailsViewController: UIViewController {
         if let image = Business.getImage(from: business.imageUrl) {
             businessImageView.image = image
         }
+        
+        var ratingImageName = "rating0"
+        
+        switch business.rating {
+        case 5:
+            ratingImageName = "rating50"
+        case 4.5:
+            ratingImageName = "rating45"
+        case 4:
+            ratingImageName = "rating40"
+        case 3.5:
+            ratingImageName = "rating35"
+        case 3:
+            ratingImageName = "rating30"
+        case 2.5:
+            ratingImageName = "rating25"
+        case 2:
+            ratingImageName = "rating20"
+        case 1.5:
+            ratingImageName = "rating15"
+        case 1:
+            ratingImageName = "rating10"
+        default:
+            break
+        }
+        
+        businessReviewImageView.image = UIImage(named: ratingImageName)
+        
         //businessReviewImageView.image
         businessReviewCountLabel.text = "Based on " + String(business.reviewCount) + " reviews."
         
