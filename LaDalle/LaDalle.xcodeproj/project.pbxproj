@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AB05DB321D931A3100955498 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB05DB311D931A3100955498 /* DetailView.swift */; };
+		AB05DB341D931D0200955498 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AB05DB331D931D0200955498 /* Poppins-Regular.ttf */; };
 		AB33CCEF1D8C56EA002E4BA4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB33CCEE1D8C56EA002E4BA4 /* AppDelegate.swift */; };
 		AB33CCF41D8C56EA002E4BA4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB33CCF21D8C56EA002E4BA4 /* Main.storyboard */; };
 		AB33CCF61D8C56EA002E4BA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB33CCF51D8C56EA002E4BA4 /* Assets.xcassets */; };
@@ -28,6 +30,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AB05DB311D931A3100955498 /* DetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		AB05DB331D931D0200955498 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
 		AB33CCEB1D8C56EA002E4BA4 /* La Dalle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "La Dalle.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB33CCEE1D8C56EA002E4BA4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AB33CCF31D8C56EA002E4BA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -96,6 +100,7 @@
 		ABA823891D905E1900F618D2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				AB05DB331D931D0200955498 /* Poppins-Regular.ttf */,
 				ABA823851D904FF300F618D2 /* ApiKeys.plist */,
 				ABA823871D90514600F618D2 /* ApiKeys.swift */,
 				ABA8238C1D905E4300F618D2 /* categories.json */,
@@ -129,6 +134,7 @@
 		ABA823981D90A6B400F618D2 /* Custom Cells */ = {
 			isa = PBXGroup;
 			children = (
+				AB05DB311D931A3100955498 /* DetailView.swift */,
 				AB4476771D8C722B005F892B /* BusinessCell.swift */,
 				ABA823991D90A8F600F618D2 /* CategoryCell.swift */,
 			);
@@ -198,6 +204,7 @@
 				AB33CCF91D8C56EA002E4BA4 /* LaunchScreen.storyboard in Resources */,
 				ABA823861D904FF300F618D2 /* ApiKeys.plist in Resources */,
 				AB33CCF61D8C56EA002E4BA4 /* Assets.xcassets in Resources */,
+				AB05DB341D931D0200955498 /* Poppins-Regular.ttf in Resources */,
 				ABA8238D1D905E4300F618D2 /* categories.json in Resources */,
 				AB33CCF41D8C56EA002E4BA4 /* Main.storyboard in Resources */,
 			);
@@ -213,6 +220,7 @@
 				ABA823921D907A5D00F618D2 /* Category.swift in Sources */,
 				ABA8237A1D8C9B1300F618D2 /* BusinessDetailsViewController.swift in Sources */,
 				AB33CD051D8C5C0B002E4BA4 /* BusinessTableViewController.swift in Sources */,
+				AB05DB321D931A3100955498 /* DetailView.swift in Sources */,
 				AB33CCEF1D8C56EA002E4BA4 /* AppDelegate.swift in Sources */,
 				ABA8238F1D907A3800F618D2 /* Location.swift in Sources */,
 				AB4476781D8C722B005F892B /* BusinessCell.swift in Sources */,
