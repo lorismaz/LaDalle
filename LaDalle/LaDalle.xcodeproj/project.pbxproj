@@ -11,9 +11,9 @@
 		AB33CCF41D8C56EA002E4BA4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB33CCF21D8C56EA002E4BA4 /* Main.storyboard */; };
 		AB33CCF61D8C56EA002E4BA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB33CCF51D8C56EA002E4BA4 /* Assets.xcassets */; };
 		AB33CCF91D8C56EA002E4BA4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB33CCF71D8C56EA002E4BA4 /* LaunchScreen.storyboard */; };
-		AB33CD051D8C5C0B002E4BA4 /* PlaceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB33CD041D8C5C0B002E4BA4 /* PlaceTableViewController.swift */; };
-		AB4476781D8C722B005F892B /* PlaceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4476771D8C722B005F892B /* PlaceCell.swift */; };
-		ABA8237A1D8C9B1300F618D2 /* PlaceDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA823791D8C9B1300F618D2 /* PlaceDetailsViewController.swift */; };
+		AB33CD051D8C5C0B002E4BA4 /* BusinessTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB33CD041D8C5C0B002E4BA4 /* BusinessTableViewController.swift */; };
+		AB4476781D8C722B005F892B /* BusinessCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4476771D8C722B005F892B /* BusinessCell.swift */; };
+		ABA8237A1D8C9B1300F618D2 /* BusinessDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA823791D8C9B1300F618D2 /* BusinessDetailsViewController.swift */; };
 		ABA823821D904E6000F618D2 /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA823811D904E6000F618D2 /* CategoryTableViewController.swift */; };
 		ABA823841D904E8A00F618D2 /* Yelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA823831D904E8A00F618D2 /* Yelp.swift */; };
 		ABA823861D904FF300F618D2 /* ApiKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = ABA823851D904FF300F618D2 /* ApiKeys.plist */; };
@@ -24,6 +24,7 @@
 		ABA823941D907A7600F618D2 /* Coordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA823931D907A7600F618D2 /* Coordinates.swift */; };
 		ABA823961D907A9900F618D2 /* Business.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA823951D907A9900F618D2 /* Business.swift */; };
 		ABA8239A1D90A8F600F618D2 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA823991D90A8F600F618D2 /* CategoryCell.swift */; };
+		ABC074E01D91C6A300D0E4D5 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC074DF1D91C6A300D0E4D5 /* DataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,9 +34,9 @@
 		AB33CCF51D8C56EA002E4BA4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AB33CCF81D8C56EA002E4BA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AB33CCFA1D8C56EA002E4BA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AB33CD041D8C5C0B002E4BA4 /* PlaceTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceTableViewController.swift; sourceTree = "<group>"; };
-		AB4476771D8C722B005F892B /* PlaceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceCell.swift; sourceTree = "<group>"; };
-		ABA823791D8C9B1300F618D2 /* PlaceDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceDetailsViewController.swift; sourceTree = "<group>"; };
+		AB33CD041D8C5C0B002E4BA4 /* BusinessTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessTableViewController.swift; sourceTree = "<group>"; };
+		AB4476771D8C722B005F892B /* BusinessCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessCell.swift; sourceTree = "<group>"; };
+		ABA823791D8C9B1300F618D2 /* BusinessDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessDetailsViewController.swift; sourceTree = "<group>"; };
 		ABA823811D904E6000F618D2 /* CategoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
 		ABA823831D904E8A00F618D2 /* Yelp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Yelp.swift; sourceTree = "<group>"; };
 		ABA823851D904FF300F618D2 /* ApiKeys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ApiKeys.plist; sourceTree = "<group>"; };
@@ -46,6 +47,7 @@
 		ABA823931D907A7600F618D2 /* Coordinates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinates.swift; sourceTree = "<group>"; };
 		ABA823951D907A9900F618D2 /* Business.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Business.swift; sourceTree = "<group>"; };
 		ABA823991D90A8F600F618D2 /* CategoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
+		ABC074DF1D91C6A300D0E4D5 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 				ABA823911D907A5D00F618D2 /* Category.swift */,
 				ABA823931D907A7600F618D2 /* Coordinates.swift */,
 				ABA823951D907A9900F618D2 /* Business.swift */,
+				ABC074DF1D91C6A300D0E4D5 /* DataManager.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -116,9 +119,9 @@
 		ABA823971D90A69300F618D2 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				AB33CD041D8C5C0B002E4BA4 /* PlaceTableViewController.swift */,
+				AB33CD041D8C5C0B002E4BA4 /* BusinessTableViewController.swift */,
 				ABA823811D904E6000F618D2 /* CategoryTableViewController.swift */,
-				ABA823791D8C9B1300F618D2 /* PlaceDetailsViewController.swift */,
+				ABA823791D8C9B1300F618D2 /* BusinessDetailsViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -126,7 +129,7 @@
 		ABA823981D90A6B400F618D2 /* Custom Cells */ = {
 			isa = PBXGroup;
 			children = (
-				AB4476771D8C722B005F892B /* PlaceCell.swift */,
+				AB4476771D8C722B005F892B /* BusinessCell.swift */,
 				ABA823991D90A8F600F618D2 /* CategoryCell.swift */,
 			);
 			name = "Custom Cells";
@@ -208,16 +211,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				ABA823921D907A5D00F618D2 /* Category.swift in Sources */,
-				ABA8237A1D8C9B1300F618D2 /* PlaceDetailsViewController.swift in Sources */,
-				AB33CD051D8C5C0B002E4BA4 /* PlaceTableViewController.swift in Sources */,
+				ABA8237A1D8C9B1300F618D2 /* BusinessDetailsViewController.swift in Sources */,
+				AB33CD051D8C5C0B002E4BA4 /* BusinessTableViewController.swift in Sources */,
 				AB33CCEF1D8C56EA002E4BA4 /* AppDelegate.swift in Sources */,
 				ABA8238F1D907A3800F618D2 /* Location.swift in Sources */,
-				AB4476781D8C722B005F892B /* PlaceCell.swift in Sources */,
+				AB4476781D8C722B005F892B /* BusinessCell.swift in Sources */,
 				ABA823941D907A7600F618D2 /* Coordinates.swift in Sources */,
 				ABA823821D904E6000F618D2 /* CategoryTableViewController.swift in Sources */,
 				ABA823961D907A9900F618D2 /* Business.swift in Sources */,
 				ABA823881D90514600F618D2 /* ApiKeys.swift in Sources */,
 				ABA823841D904E8A00F618D2 /* Yelp.swift in Sources */,
+				ABC074E01D91C6A300D0E4D5 /* DataManager.swift in Sources */,
 				ABA8239A1D90A8F600F618D2 /* CategoryCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
