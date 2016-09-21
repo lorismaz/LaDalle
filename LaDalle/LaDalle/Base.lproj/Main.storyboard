@@ -6,8 +6,13 @@
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Poppins-Regular.ttf">
+            <string>Poppins-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
-        <!--Place Name-->
+        <!--Business Details View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="BusinessDetailsViewController" customModule="La_Dalle" customModuleProvider="target" sceneMemberID="viewController">
@@ -19,7 +24,7 @@
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="o-2" translatesAutoresizingMaskIntoConstraints="NO" id="fAt-3L-a68"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="o-2" translatesAutoresizingMaskIntoConstraints="NO" id="fAt-3L-a68"/>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ukw-g0-pK7">
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="kv2-VP-lwL">
                                     <frame key="frameInset"/>
@@ -33,19 +38,23 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Business Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cfk-Zx-bgP">
                                                             <frame key="frameInset" minX="8" minY="8" width="322" height="40"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="29"/>
-                                                            <nil key="textColor"/>
+                                                            <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="29"/>
+                                                            <color key="textColor" red="0.17254901959999999" green="0.24313725489999999" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="review count" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xG0-b6-GT0">
-                                                            <frame key="frameInset" minX="134" minY="56" width="196" height="21"/>
+                                                            <frame key="frameInset" minX="8" minY="82" width="205" height="18"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                            <nil key="textColor"/>
+                                                            <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
+                                                            <color key="textColor" red="0.17254901959999999" green="0.24313725489999999" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LkJ-Hs-VvI">
-                                                            <frame key="frameInset" minX="8" minY="56" width="118" height="21"/>
+                                                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="rating50" translatesAutoresizingMaskIntoConstraints="NO" id="LkJ-Hs-VvI">
+                                                            <frame key="frameInset" minX="8" minY="56" width="106" height="18"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        </imageView>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="yelp-2c-outline" translatesAutoresizingMaskIntoConstraints="NO" id="x10-oe-Sgc">
+                                                            <frame key="frameInset" minX="117" minY="51" width="58" height="32"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         </imageView>
                                                     </subviews>
@@ -106,7 +115,21 @@
                             <constraint firstAttribute="trailing" secondItem="fAt-3L-a68" secondAttribute="trailing" id="yRU-sf-xYI"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Place Name" id="pkI-qg-cF9">
+                    <navigationItem key="navigationItem" id="pkI-qg-cF9">
+                        <nil key="title"/>
+                        <view key="titleView" contentMode="scaleToFill" id="YWR-lH-cPi">
+                            <rect key="frame" x="45" y="6" width="278" height="33"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="La Dalle" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vpJ-CT-PeY">
+                                    <frame key="frameInset" minY="6" width="284" height="21"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                    <color key="textColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                        </view>
                         <barButtonItem key="rightBarButtonItem" systemItem="action" id="J0G-zK-pMV">
                             <color key="tintColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                         </barButtonItem>
@@ -160,41 +183,41 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="sectionIndexBackgroundColor" red="0.17254901959999999" green="0.24313725489999999" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="categoryCell" rowHeight="208" id="a2X-rO-gN8" customClass="CategoryCell" customModule="La_Dalle" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="208"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="categoryCell" rowHeight="215" id="a2X-rO-gN8" customClass="CategoryCell" customModule="La_Dalle" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="215"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="a2X-rO-gN8" id="iNj-mO-eiP">
-                                    <frame key="frameInset" width="375" height="208"/>
+                                    <frame key="frameInset" width="375" height="215"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Fu-Th-1XH">
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="eI2-N0-7mU"/>
+                                                <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="eI2-N0-7mU"/>
                                                 <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KhY-Da-PnN">
                                                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="2ex-av-4O4">
                                                         <frame key="frameInset"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="3W8-Dd-n1w">
-                                                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3W8-Dd-n1w">
+                                                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="37"/>
                                                                 <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                         </subviews>
                                                         <constraints>
-                                                            <constraint firstItem="3W8-Dd-n1w" firstAttribute="width" secondItem="2ex-av-4O4" secondAttribute="width" multiplier="0.9" id="Gxj-NS-wAU"/>
+                                                            <constraint firstItem="3W8-Dd-n1w" firstAttribute="width" secondItem="2ex-av-4O4" secondAttribute="width" multiplier="0.95" id="Gxj-NS-wAU"/>
                                                             <constraint firstItem="3W8-Dd-n1w" firstAttribute="centerX" secondItem="2ex-av-4O4" secondAttribute="centerX" id="mBP-r6-qI7"/>
                                                             <constraint firstItem="3W8-Dd-n1w" firstAttribute="centerY" secondItem="2ex-av-4O4" secondAttribute="centerY" id="tGo-0W-USm"/>
                                                         </constraints>
                                                     </view>
-                                                    <color key="backgroundColor" red="0.17254901960784313" green="0.24313725490196078" blue="0.31372549019607843" alpha="0.38321382705479451" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" red="0.17254901960784313" green="0.24313725490196078" blue="0.31372549019607843" alpha="0.67000000000000004" colorSpace="calibratedRGB"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="40" id="RA2-e3-OYV"/>
+                                                        <constraint firstAttribute="height" constant="58" id="RA2-e3-OYV"/>
                                                     </constraints>
                                                     <blurEffect style="light"/>
                                                 </visualEffectView>
                                             </subviews>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstItem="KhY-Da-PnN" firstAttribute="centerX" secondItem="2Fu-Th-1XH" secondAttribute="centerX" id="8uc-FY-hOe"/>
                                                 <constraint firstAttribute="bottom" secondItem="eI2-N0-7mU" secondAttribute="bottom" id="DG6-Yz-U9q"/>
@@ -206,6 +229,7 @@
                                             </constraints>
                                         </view>
                                     </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstAttribute="bottom" secondItem="2Fu-Th-1XH" secondAttribute="bottom" id="X2T-Bz-k6r"/>
                                         <constraint firstAttribute="trailing" secondItem="2Fu-Th-1XH" secondAttribute="trailing" id="Z6G-XL-VAv"/>
@@ -213,6 +237,7 @@
                                         <constraint firstItem="2Fu-Th-1XH" firstAttribute="leading" secondItem="iNj-mO-eiP" secondAttribute="leading" id="tHm-dZ-TDY"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="categoryNameLabel" destination="3W8-Dd-n1w" id="LrX-6F-toY"/>
                                     <segue destination="ehS-1e-rMs" kind="show" identifier="ToBusinessTable" id="yGj-Ah-7Wg"/>
@@ -233,9 +258,9 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="La Dalle" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DEH-O6-mD7">
-                                    <frame key="frameInset" minY="6" width="150" height="21"/>
+                                    <frame key="frameInset" minY="6" width="150" height="27"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="26"/>
                                     <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
@@ -252,7 +277,7 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
             </objects>
-            <point key="canvasLocation" x="1598" y="159"/>
+            <point key="canvasLocation" x="1597.5999999999999" y="158.77061469265368"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="OIX-65-Mbg">
@@ -304,15 +329,14 @@
             </objects>
             <point key="canvasLocation" x="2380" y="-210.04497751124438"/>
         </scene>
-        <!--La Dalle-->
+        <!--Business Table View Controller-->
         <scene sceneID="qEV-tH-khq">
             <objects>
                 <tableViewController id="ehS-1e-rMs" customClass="BusinessTableViewController" customModule="La_Dalle" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="336" sectionHeaderHeight="28" sectionFooterHeight="28" id="xSB-aQ-6yx">
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="sectionIndexBackgroundColor" red="0.17254901959999999" green="0.24313725489999999" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BusinessCell" rowHeight="336" id="1o5-xC-5L6" customClass="BusinessCell" customModule="La_Dalle" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="336"/>
@@ -329,8 +353,8 @@
                                                         <frame key="frameInset"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Place Name" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B1K-zp-o7j">
-                                                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Place Name" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B1K-zp-o7j">
+                                                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="37"/>
                                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
@@ -380,8 +404,22 @@
                             <outlet property="delegate" destination="ehS-1e-rMs" id="p5e-be-6Lv"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="La Dalle" id="l0f-Dc-3pS">
+                    <navigationItem key="navigationItem" id="l0f-Dc-3pS">
+                        <nil key="title"/>
                         <barButtonItem key="backBarButtonItem" title=" " id="7M1-62-ztL"/>
+                        <view key="titleView" contentMode="scaleToFill" id="ZBB-oc-pTa">
+                            <rect key="frame" x="58" y="6" width="260" height="33"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Category Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t6L-OO-V7P">
+                                    <frame key="frameInset" minY="6" width="260" height="21"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="17"/>
+                                    <color key="textColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                        </view>
                     </navigationItem>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="ToBusinessDetail" id="Zyi-U4-CPW"/>
@@ -396,7 +434,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Pq6-my-aia" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="YGP-xP-wve">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" translucent="NO" id="YGP-xP-wve">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -418,6 +456,8 @@
     <resources>
         <image name="o-2" width="452" height="500"/>
         <image name="placeholder" width="1024" height="1024"/>
+        <image name="rating50" width="106" height="18"/>
+        <image name="yelp-2c-outline" width="675" height="383"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Zyi-U4-CPW"/>
