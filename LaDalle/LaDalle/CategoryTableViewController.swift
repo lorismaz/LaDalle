@@ -112,6 +112,13 @@ class CategoryTableViewController: UITableViewController, CLLocationManagerDeleg
                 
                 let category = categories[indexPath.row]
                 destination.categoryAlias = category.alias
+                
+                
+                //get current location
+                guard let location = locationManager.location else { return }
+                
+                self.coordinates = Coordinates(latitude: Double(location.coordinate.latitude), longitude: Double(location.coordinate.longitude) )
+                
                 destination.coordinates = coordinates
             }
         }
