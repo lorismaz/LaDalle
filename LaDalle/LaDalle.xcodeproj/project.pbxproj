@@ -84,6 +84,7 @@
 		AB33CCED1D8C56EA002E4BA4 /* LaDalle */ = {
 			isa = PBXGroup;
 			children = (
+				ABA569C91D932C6900D4E1C8 /* Custom Views */,
 				ABA823901D907A4600F618D2 /* Models */,
 				ABA823981D90A6B400F618D2 /* Custom Cells */,
 				ABA823971D90A69300F618D2 /* View Controllers */,
@@ -95,6 +96,14 @@
 				AB33CCFA1D8C56EA002E4BA4 /* Info.plist */,
 			);
 			path = LaDalle;
+			sourceTree = "<group>";
+		};
+		ABA569C91D932C6900D4E1C8 /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+				AB05DB311D931A3100955498 /* DetailView.swift */,
+			);
+			name = "Custom Views";
 			sourceTree = "<group>";
 		};
 		ABA823891D905E1900F618D2 /* Resources */ = {
@@ -134,7 +143,6 @@
 		ABA823981D90A6B400F618D2 /* Custom Cells */ = {
 			isa = PBXGroup;
 			children = (
-				AB05DB311D931A3100955498 /* DetailView.swift */,
 				AB4476771D8C722B005F892B /* BusinessCell.swift */,
 				ABA823991D90A8F600F618D2 /* CategoryCell.swift */,
 			);
