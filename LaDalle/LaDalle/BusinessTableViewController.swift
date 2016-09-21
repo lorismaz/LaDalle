@@ -11,7 +11,6 @@ import CoreLocation
 
 class BusinessTableViewController: UITableViewController {
 
-    let dataManager = DataManager.sharedInstance
     var businesses = [Business]()
     var categoryAlias: String?
     var coordinates: Coordinates?
@@ -19,17 +18,9 @@ class BusinessTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("BussinesTableVC array count: \(businesses.count)")
-        //businesses = dataManager.businesses
-        
-        //self.reload()
-        reload()
-        
-        
-        
-        
-        
         print(">>>let's do this>>>")
+
+        reload()
     }
 
     //The Main OperationQueue is where any UI changes or updates happen
@@ -55,7 +46,7 @@ class BusinessTableViewController: UITableViewController {
                 print(category)
                 print(coordinates)
                 
-                Yelp.getLocalPlaces(forCategory: category, coordinates: coordinates, completionHandler: { (business) in
+                Business.getLocalPlaces(forCategory: category, coordinates: coordinates, completionHandler: { (business) in
                     
                     self.main.addOperation {
                         //print("reload")
@@ -94,10 +85,6 @@ class BusinessTableViewController: UITableViewController {
         if let image = Business.getImage(from: business.imageUrl) {
             cell.businessImageView.image = image
         }
-        
-        //print(business.imageUrl)
-        
-//        cell.businessImageView.image = business.imageUrl
 
         return cell
     }
