@@ -26,7 +26,10 @@ class CategoryTableViewController: UITableViewController, CLLocationManagerDeleg
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
-
+        
+        self.tableView.backgroundView = UIImageView(image: UIImage(named: "o-2-blured"))
+        self.tableView.backgroundView?.clipsToBounds = true
+        
     }
     
  
