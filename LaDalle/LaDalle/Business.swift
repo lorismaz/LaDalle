@@ -6,7 +6,7 @@
 //  Copyright © 2016 Loris Mazloum. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class Business {
     let name: String
@@ -60,6 +60,22 @@ class Business {
         
         //Take the data parsed and create a Place Object from it
         return Business(name: name, id: id, location: locationObject, coordinates: coordinatesObject, rating: rating, reviewCount: reviewCount, imageUrl: imageUrl)
+    }
+    
+    static func getImage(from url: String) -> UIImage? {
+        
+        guard let imageUrl = URL(string: url) else { return nil  }
+        
+        do {
+            let imageData = try Data(contentsOf: imageUrl)
+            
+            guard let image = UIImage(data: imageData) else { return nil }
+            return image
+        } catch {
+            print("Could not create an image out of your link")
+        }
+        
+        return nil
     }
     
 }
