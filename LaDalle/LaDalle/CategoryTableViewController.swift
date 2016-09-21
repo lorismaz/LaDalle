@@ -12,11 +12,12 @@ import CoreLocation
 class CategoryTableViewController: UITableViewController, CLLocationManagerDelegate {
     
     var categories = Category.loadDefaults()
-    
+    var coordinates: Coordinates?
     //let searchController = UISearchController(searchResultsController: nil)
     
     var locationManager: CLLocationManager!
     var userCoordinates: Coordinates? = nil
+    //let yelp = Yelp.sharedInstance
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,13 +38,13 @@ class CategoryTableViewController: UITableViewController, CLLocationManagerDeleg
                     manager.startUpdatingLocation()
                     guard let location = manager.location else { return }
                     
-                    let coordinates = Coordinates(latitude: Double(location.coordinate.latitude), longitude: Double(location.coordinate.longitude) )
+                    self.coordinates = Coordinates(latitude: Double(location.coordinate.latitude), longitude: Double(location.coordinate.longitude) )
                     
                     print("Location \(location.coordinate.latitude) x \(location.coordinate.longitude)")
                     
                     
                     // move this to
-                    Yelp.sharedInstance.getLocalPlaces(forCategory: "sushi", coordinates: coordinates)
+                    //yelp.getLocalPlaces(forCategory: "sushi", coordinates: coordinates)
                     
                     
                 }
@@ -76,14 +77,46 @@ class CategoryTableViewController: UITableViewController, CLLocationManagerDeleg
     }
 
     
-    /*
+    
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let row = indexPath.row
+        let category = categories[row]
+        
+        //displayBusinesses(for: category)
+        
     }
-    */
+    
+//    func displayBusinesses(for category: Category) {
+//        
+//        // Get current location
+//        guard let location = locationManager.location else { print("need access to location") ; return }
+//        let latitude = location.coordinate.latitude
+//        let longitude = location.coordinate.longitude
+//        
+//        let coordinates = Coordinates(latitude: latitude, longitude: longitude)
+//        
+//        // search local places
+//        let businesses = yelp.getLocalPlaces(forCategory: category.alias, coordinates: coordinates)
+//        
+//        performSegue(withIdentifier: "ToBusinessTable", sender: nil)
+//    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        
+        if segue.identifier == "ToBusinessTable" {
+            if let indexPath = tableView.indexPathForSelectedRow {
+                guard let destination = segue.destination as? BusinessTableViewController else { return }
+                
+                let category = categories[indexPath.row]
+                destination.categoryAlias = category.alias
+                destination.coordinates = coordinates
+            }
+        }
+        
+    }
+ 
 
 }

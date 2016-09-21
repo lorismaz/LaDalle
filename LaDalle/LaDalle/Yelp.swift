@@ -14,10 +14,10 @@ import UIKit
 class Yelp {
     private let server = "https://api.yelp.com/v3/"
     
-    static let sharedInstance = Yelp()
+    //static let sharedInstance = Yelp()
     var token: String? = nil
     
-    private init() {
+    init() {
     }
 
 }
@@ -98,15 +98,16 @@ extension Yelp {
 
 // Get Local Places
 extension Yelp {
-    func getLocalPlaces(forCategory category: String, coordinates: Coordinates) -> [Business] {
+    
+    class func getLocalPlaces(forCategory category: String, coordinates: Coordinates, completionHandler: @escaping ([Business]) -> ()) {
         
-        
+        let dataManager = DataManager.sharedInstance
+
         var arrayOfBusinesses: [Business] = []
         
-        //guard self.token != nil else { return [] }
         let accessToken = valueForAPIKey(named: "YELP_API_ACCESS_TOKEN")
         
-        //if radius return 0 result then increase the radius
+        //if radius return 0 results then increase the radius
         let radius = 2011
         
         // limit distance and limit to open only.
@@ -117,13 +118,14 @@ extension Yelp {
             "Authorization": "Bearer \(accessToken)"
         ]
         
-        guard let url = URL(string: link) else { return [] }
+        guard let url = URL(string: link) else { return }
         
         //set request
         var request = URLRequest.init(url: url)
         
         request.httpMethod = "GET"
         request.allHTTPHeaderFields = headers
+        
         //        request.httpBody = bodyData.data(using: .utf8)
         
         
@@ -151,34 +153,41 @@ extension Yelp {
                 let jsonObject = try JSONSerialization.jsonObject(with: data, options:
                     JSONSerialization.ReadingOptions.allowFragments)
                 
-                guard let result = jsonObject as? NSDictionary else { return }
-                guard let total = result["total"] as? Int else { return }
+                guard let result = jsonObject as? NSDictionary else { print("result is not a dictionary"); return }
+                guard let total = result["total"] as? Int else { print("no total available"); return }
                 guard total > 0 else { print("Search returned 0 results") ; return }
-                guard let businesses = result["businesses"] as? NSArray else { return }
+                guard let businesses = result["businesses"] as? NSArray else { print("business is not an array"); return }
                 
                 for businessObject in businesses {
-                    guard let businessDictionary = businessObject as? NSDictionary else { return }
+                    guard let businessDictionary = businessObject as? NSDictionary else { print("businessDict is not a dictionary"); return }
                     
                     // create business object
-                    guard let business = Business.fromDictionary(dictionary: businessDictionary) else { return }
+                    guard let business = Business.fromDictionary(dictionary: businessDictionary) else { print("can't create a business out of the data"); return }
                     //print("> \(business.id) | Business: \(business.name), \(business.reviewCount) reviews with a rating of \(business.rating). Coordinates: \(business.coordinates.latitude) x \(business.coordinates.longitude)" )
                     print("\(business.id)" )
                     
+                    // update data manager
                     arrayOfBusinesses.append(business)
+                    completionHandler(arrayOfBusinesses)
                     
+//                    print("business count before append: \(dataManager.businesses.count)")
+//                    dataManager.businesses.append(business)
+//                    print("business count after append: \(dataManager.businesses.count)")
                     
                 }
                 
                 
-                //                DispatchQueue.main.async {
-                //                    // do something in the main queue
-                //                    //self.dataContentText.text = jsonString
-                //                }
+//                                DispatchQueue.main.async {
+//                                    // do something in the main queue
+//                                    //self.dataContentText.text = jsonString
+//                                }
                 
             } catch {
                 print("Could not get places")
                 return
             }
+            
+            dataManager.businesses = arrayOfBusinesses
             
         }
         
@@ -188,7 +197,7 @@ extension Yelp {
         //resume dataTask
         dataTask.resume()
         
-        return []
+        return
         
     }
 }
