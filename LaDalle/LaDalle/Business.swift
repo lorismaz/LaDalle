@@ -16,8 +16,9 @@ class Business {
     let rating: Double
     let reviewCount: Int
     let imageUrl: String
+    let url: String
     
-    init(name: String, id: String, location: Location, coordinates: Coordinates, rating: Double, reviewCount: Int, imageUrl: String) {
+    init(name: String, id: String, location: Location, coordinates: Coordinates, rating: Double, reviewCount: Int, imageUrl: String, url: String) {
         self.name = name
         self.id = id
         self.location = location
@@ -25,6 +26,7 @@ class Business {
         self.rating = rating
         self.reviewCount = reviewCount
         self.imageUrl = imageUrl
+        self.url = url
     }
     
     func loadImage(from url: String) {
@@ -38,7 +40,8 @@ class Business {
             let id = dictionary["id"] as? String,
             let rating = dictionary["rating"] as? Double,
             let reviewCount = dictionary["review_count"] as? Int,
-            let imageUrl = dictionary["image_url"] as? String
+            let imageUrl = dictionary["image_url"] as? String,
+            let url = dictionary["url"] as? String
             else {
                 print("Error creating object from dictionary")
                 return nil
@@ -55,7 +58,7 @@ class Business {
         
         
         //Take the data parsed and create a Place Object from it
-        return Business(name: name, id: id, location: locationObject, coordinates: coordinatesObject, rating: rating, reviewCount: reviewCount, imageUrl: imageUrl)
+        return Business(name: name, id: id, location: locationObject, coordinates: coordinatesObject, rating: rating, reviewCount: reviewCount, imageUrl: imageUrl, url: url)
     }
     
     static func getImage(from url: String) -> UIImage? {
