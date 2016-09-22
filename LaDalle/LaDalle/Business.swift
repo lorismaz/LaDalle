@@ -7,8 +7,10 @@
 //
 
 import UIKit
+import MapKit
+import CoreLocation
 
-class Business {
+class Business: NSObject, MKAnnotation {
     let name: String
     let id: String
     let location: Location
@@ -17,6 +19,12 @@ class Business {
     let reviewCount: Int
     let imageUrl: String
     let url: String
+    
+    //MKAnnotation things
+    var coordinate: CLLocationCoordinate2D
+    var title: String?
+    var subtitle: String?
+    
     
     init(name: String, id: String, location: Location, coordinates: Coordinates, rating: Double, reviewCount: Int, imageUrl: String, url: String) {
         self.name = name
@@ -27,6 +35,15 @@ class Business {
         self.reviewCount = reviewCount
         self.imageUrl = imageUrl
         self.url = url
+        
+        self.coordinate = CLLocationCoordinate2D(latitude: coordinates.latitude, longitude: coordinates.longitude)
+        self.title = name
+        
+        let address = "\(location.address1), \(location.city), \(location.state) \(location.zipCode)"
+        
+        self.subtitle = address
+        
+        super.init()
     }
     
     func loadImage(from url: String) {
@@ -111,7 +128,7 @@ class Business {
         let accessToken = valueForAPIKey(named: "YELP_API_ACCESS_TOKEN")
         
         //if radius return 0 results then increase the radius
-        let radius = 2011
+        let radius = 1000
         
         // limit distance and limit to open only.
         let link = "https://api.yelp.com/v3/businesses/search?categories=\(category)&latitude=\(coordinates.latitude)&longitude=\(coordinates.longitude)&radius=\(radius)" //&open_now=true

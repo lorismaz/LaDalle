@@ -237,7 +237,7 @@ struct Category {
         let accessToken = valueForAPIKey(named: "YELP_API_ACCESS_TOKEN")
         
         //if radius return 0 results then increase the radius
-        let radius = 2011
+        let radius = 1000
         
         // limit distance and limit to open only.
         let link = "https://api.yelp.com/v3/businesses/search?&latitude=\(coordinates.latitude)&longitude=\(coordinates.longitude)&radius=\(radius)" //&open_now=true

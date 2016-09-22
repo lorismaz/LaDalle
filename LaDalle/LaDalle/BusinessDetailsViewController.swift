@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import CoreLocation
 
 class BusinessDetailsViewController: UIViewController, MKMapViewDelegate {
     
@@ -36,23 +37,41 @@ class BusinessDetailsViewController: UIViewController, MKMapViewDelegate {
         
         businessMapView.delegate = self
         
-        zoomToUserLocation()
-        
         populateBusinessInfo()
-        
+        addAnnotation()
+        zoomToBusinessLocation()
     }
     
-    func zoomToUserLocation() {
-    
-        guard let userCoordinates = self.coordinates else { return }
+    func zoomToBusinessLocation() {
+        guard let currentBusiness = self.business else { return }
+        guard let userCoordinate = self.coordinates else { return }
         
-        let userLocation = CLLocation(latitude: userCoordinates.latitude, longitude: userCoordinates.longitude)
+        let businessLocation = CLLocation(latitude: currentBusiness.coordinate.latitude, longitude: currentBusiness.coordinate.longitude)
         //do a check for incorrect region
         
-        let regionRadius: CLLocationDistance = 1200
-        let coordinateRegion = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, regionRadius, regionRadius)
+        
+        //get distance between user and business
+        // return 
+        let userLocation = CLLocation(latitude: userCoordinate.latitude, longitude: userCoordinate.longitude)
+        
+        let distanceFromBusiness = userLocation.distance(from: businessLocation)
+        print("Distance: \(distanceFromBusiness) meters")
+        //let distanceFromBusiness = userCoordinate.distance(from: currentBusiness.coordinate)
+        let regionRadius: CLLocationDistance = distanceFromBusiness * 10
+        print("Region Radius: \(regionRadius) meters")
+        
+        
+        
+        let coordinateRegion = MKCoordinateRegionMakeWithDistance(businessLocation.coordinate, regionRadius, regionRadius)
         businessMapView.setRegion(coordinateRegion, animated: true)
     
+    }
+    
+    func addAnnotation(){
+        
+        guard let currentBusiness = business else { return }
+        
+        businessMapView.addAnnotation(currentBusiness)
     }
     
     func populateBusinessInfo() {
