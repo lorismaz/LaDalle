@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -63,11 +64,57 @@
                                                     </constraints>
                                                 </view>
                                                 <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LB5-8a-CkX"/>
+                                                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="95" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jx3-jM-3xh">
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="183" id="Rdz-NE-ftm"/>
+                                                    </constraints>
+                                                    <prototypes>
+                                                        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ReviewCell" rowHeight="95" id="AhW-Id-9no" customClass="ReviewCell" customModule="La_Dalle" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="28" width="338" height="95"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="AhW-Id-9no" id="i7k-yv-aIF">
+                                                                <frame key="frameInset" width="338" height="95"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                                <subviews>
+                                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Review content" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d8H-bt-ydI">
+                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                        <color key="textColor" red="0.17254901959999999" green="0.24313725489999999" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                                        <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="13"/>
+                                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                                    </textView>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User name" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rU3-aV-8iW">
+                                                                        <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
+                                                                        <color key="textColor" red="0.17254901959999999" green="0.24313725489999999" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                </subviews>
+                                                                <constraints>
+                                                                    <constraint firstItem="d8H-bt-ydI" firstAttribute="centerX" secondItem="i7k-yv-aIF" secondAttribute="centerX" id="NbJ-jU-uqW"/>
+                                                                    <constraint firstItem="rU3-aV-8iW" firstAttribute="trailing" secondItem="i7k-yv-aIF" secondAttribute="trailingMargin" id="O6M-pz-Qg9"/>
+                                                                    <constraint firstItem="rU3-aV-8iW" firstAttribute="leading" secondItem="i7k-yv-aIF" secondAttribute="leadingMargin" id="PiF-3c-SBk"/>
+                                                                    <constraint firstAttribute="bottomMargin" secondItem="rU3-aV-8iW" secondAttribute="bottom" constant="2" id="dDX-kL-cqF"/>
+                                                                    <constraint firstItem="d8H-bt-ydI" firstAttribute="top" secondItem="i7k-yv-aIF" secondAttribute="top" id="etq-VK-V8L"/>
+                                                                    <constraint firstItem="d8H-bt-ydI" firstAttribute="width" secondItem="i7k-yv-aIF" secondAttribute="width" id="kbT-xg-9qt"/>
+                                                                    <constraint firstItem="rU3-aV-8iW" firstAttribute="top" secondItem="d8H-bt-ydI" secondAttribute="bottom" id="uaM-HB-2Dn"/>
+                                                                </constraints>
+                                                            </tableViewCellContentView>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                            <connections>
+                                                                <outlet property="reviewContentTextView" destination="d8H-bt-ydI" id="XGu-v2-S19"/>
+                                                                <outlet property="userNameLabel" destination="rU3-aV-8iW" id="UOq-Ff-PjF"/>
+                                                            </connections>
+                                                        </tableViewCell>
+                                                    </prototypes>
+                                                </tableView>
                                             </subviews>
                                             <color key="backgroundColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstItem="LB5-8a-CkX" firstAttribute="height" secondItem="rOK-FE-qJv" secondAttribute="height" multiplier="0.45" id="Ja5-hn-QaO"/>
+                                                <constraint firstItem="jx3-jM-3xh" firstAttribute="width" secondItem="rOK-FE-qJv" secondAttribute="width" id="PdB-72-RSd"/>
                                                 <constraint firstItem="ebq-1g-NLs" firstAttribute="width" secondItem="rOK-FE-qJv" secondAttribute="width" id="StM-DP-GUu"/>
+                                                <constraint firstItem="jx3-jM-3xh" firstAttribute="centerX" secondItem="rOK-FE-qJv" secondAttribute="centerX" id="VCu-1y-G4r"/>
+                                                <constraint firstItem="jx3-jM-3xh" firstAttribute="top" secondItem="ebq-1g-NLs" secondAttribute="bottom" constant="9" id="W76-jX-2dp"/>
                                                 <constraint firstItem="ebq-1g-NLs" firstAttribute="centerX" secondItem="rOK-FE-qJv" secondAttribute="centerX" id="fGk-D9-hgp"/>
                                                 <constraint firstItem="LB5-8a-CkX" firstAttribute="leading" secondItem="rOK-FE-qJv" secondAttribute="leading" id="n5A-z2-sJ3"/>
                                                 <constraint firstItem="LB5-8a-CkX" firstAttribute="top" secondItem="rOK-FE-qJv" secondAttribute="top" id="noy-Nw-CsH"/>
@@ -144,6 +191,7 @@
                         <outlet property="businessNameLabel" destination="cfk-Zx-bgP" id="we9-bX-uxq"/>
                         <outlet property="businessReviewCountLabel" destination="xG0-b6-GT0" id="egC-sa-eI6"/>
                         <outlet property="businessReviewImageView" destination="LkJ-Hs-VvI" id="fgp-IJ-gK9"/>
+                        <outlet property="reviewTableView" destination="jx3-jM-3xh" id="1gh-ye-fnq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

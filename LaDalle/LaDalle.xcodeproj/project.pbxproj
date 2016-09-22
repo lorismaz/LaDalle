@@ -17,6 +17,7 @@
 		AB4476781D8C722B005F892B /* BusinessCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4476771D8C722B005F892B /* BusinessCell.swift */; };
 		AB868CFD1D947F1E00549948 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB868CFC1D947F1E00549948 /* Review.swift */; };
 		AB868CFF1D9481D900549948 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB868CFE1D9481D900549948 /* User.swift */; };
+		AB868D011D949A9300549948 /* ReviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB868D001D949A9300549948 /* ReviewCell.swift */; };
 		ABA8237A1D8C9B1300F618D2 /* BusinessDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA823791D8C9B1300F618D2 /* BusinessDetailsViewController.swift */; };
 		ABA823821D904E6000F618D2 /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA823811D904E6000F618D2 /* CategoryTableViewController.swift */; };
 		ABA823841D904E8A00F618D2 /* Yelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA823831D904E8A00F618D2 /* Yelp.swift */; };
@@ -42,6 +43,7 @@
 		AB4476771D8C722B005F892B /* BusinessCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessCell.swift; sourceTree = "<group>"; };
 		AB868CFC1D947F1E00549948 /* Review.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 		AB868CFE1D9481D900549948 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		AB868D001D949A9300549948 /* ReviewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewCell.swift; sourceTree = "<group>"; };
 		ABA823791D8C9B1300F618D2 /* BusinessDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessDetailsViewController.swift; sourceTree = "<group>"; };
 		ABA823811D904E6000F618D2 /* CategoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
 		ABA823831D904E8A00F618D2 /* Yelp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Yelp.swift; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 			children = (
 				AB4476771D8C722B005F892B /* BusinessCell.swift */,
 				ABA823991D90A8F600F618D2 /* CategoryCell.swift */,
+				AB868D001D949A9300549948 /* ReviewCell.swift */,
 			);
 			name = "Custom Cells";
 			sourceTree = "<group>";
@@ -226,6 +229,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ABA823921D907A5D00F618D2 /* Category.swift in Sources */,
+				AB868D011D949A9300549948 /* ReviewCell.swift in Sources */,
 				ABA8237A1D8C9B1300F618D2 /* BusinessDetailsViewController.swift in Sources */,
 				AB33CD051D8C5C0B002E4BA4 /* BusinessTableViewController.swift in Sources */,
 				AB05DB321D931A3100955498 /* DetailView.swift in Sources */,

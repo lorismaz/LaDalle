@@ -11,7 +11,7 @@ import UIKit
 struct Review {
     let text: String
     let user: User
-    let url: URL
+    let url: String
     let rating: Double
     let timeCreated: String
     
@@ -20,16 +20,17 @@ struct Review {
         //Pull out each individual element from the dictionary
         guard
             let text = dictionary["text"] as? String,
-            let url = dictionary["url"] as? URL,
+            let url = dictionary["url"] as? String,
             let rating = dictionary["rating"] as? Double,
             let timeCreated = dictionary["time_created"] as? String
             else {
+                print("Error getting basic fields")
                 return nil
         }
         
         //create user
-        guard let userDictionary = dictionary["user"] as? NSDictionary else { return nil }
-        guard let user = User.fromDictionary(dictionary: userDictionary) else {return nil}
+        guard let userDictionary = dictionary["user"] as? NSDictionary else { print("Error creating the user dictionary"); return nil }
+        guard let user = User.fromDictionary(dictionary: userDictionary) else { print("Error creating the user object"); return nil}
         
         
         //Take the data parsed and create a Place Object from it

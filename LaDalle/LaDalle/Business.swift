@@ -122,8 +122,84 @@ class Business: NSObject, MKAnnotation {
         }
     }
     
-    func getReviews() {
+    func getReviews(completionHandler: @escaping ([Review]) -> ()) {
         print("➡️ Getting reviews for business \(self.name)")
+        
+        var arrayOfReviews: [Review] = []
+        
+        let accessToken = valueForAPIKey(named: "YELP_API_ACCESS_TOKEN")
+        
+        let link = "https://api.yelp.com/v3/businesses/\(self.id)/reviews"
+        
+        //set headers
+        let headers = [
+            "Authorization": "Bearer \(accessToken)"
+        ]
+        
+        guard let url = URL(string: link) else { return }
+        
+        //set request
+        var request = URLRequest.init(url: url)
+        
+        request.httpMethod = "GET"
+        request.allHTTPHeaderFields = headers
+        
+        //        request.httpBody = bodyData.data(using: .utf8)
+        
+        
+        //create sharedSession
+        let sharedSession = URLSession.shared
+        
+        // setup completion handler
+        let completionHandler: (Data?, URLResponse?, Error?) -> Void = { data, response, error in
+            
+            guard let data = data, error == nil else {
+                // check for networking error
+                print("error=\(error)")
+                return
+            }
+            
+            if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {           // check for http errors
+                print("statusCode should be 200, but is \(httpStatus.statusCode)")
+                print("response = \(response)")
+            }
+            
+            //let responseString = String(data: data, encoding: .utf8)
+            //print("responseString = \(responseString)")
+            
+            do {
+                let jsonObject = try JSONSerialization.jsonObject(with: data, options:
+                    JSONSerialization.ReadingOptions.allowFragments)
+                
+                guard let result = jsonObject as? NSDictionary else { print("result is not a dictionary"); return }
+                
+                guard let reviews = result["reviews"] as? NSArray else { print("not review array present"); return }
+                
+                for reviewObject in reviews {
+                    guard let reviewDictionary = reviewObject as? NSDictionary else { print("reviewDictionary is not a dictionary"); return }
+                    
+                    // create review object
+                    guard let review = Review.fromDictionary(dictionary: reviewDictionary) else { print("can't create a review out of the data"); return }
+                    
+                    arrayOfReviews.append(review)
+                    completionHandler(arrayOfReviews)
+                    
+                }
+                
+            } catch {
+                print("Could not get reviews")
+                return
+            }
+            
+        }
+        
+        // set dataTask
+        let dataTask = sharedSession.dataTask(with: request, completionHandler: completionHandler)
+        
+        //resume dataTask
+        dataTask.resume()
+        
+        return
     }
     
     static func getLocalPlaces(forCategory category: String, coordinates: CLLocation, completionHandler: @escaping ([Business]) -> ()) {
