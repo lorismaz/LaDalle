@@ -230,6 +230,8 @@ struct Category {
     
     static func getCategories(for coordinates: Coordinates, categorySearchCompletionHandler: @escaping ([Category]) -> ()) {
         
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        
         var arrayOfCategories: [Category] = []
         
         let accessToken = valueForAPIKey(named: "YELP_API_ACCESS_TOKEN")
@@ -282,8 +284,6 @@ struct Category {
                 for businessObject in businesses {
                     guard let businessDictionary = businessObject as? NSDictionary else { print("businessDict is not a dictionary"); return }
                     
-                    // create business object
-//                    guard let business = Business.fromDictionary(dictionary: businessDictionary) else { print("can't create a business out of the data"); return }
                     guard let categories = businessDictionary["categories"] as? NSArray else { print("error parsing categories as an array"); return }
                     
                     
@@ -302,26 +302,15 @@ struct Category {
                         
                     }
                     
-                    // update data manager
-                    
                     categorySearchCompletionHandler(arrayOfCategories)
                     
-                    //                    print("business count before append: \(dataManager.businesses.count)")
-                    //                    dataManager.businesses.append(business)
-                    //                    print("business count after append: \(dataManager.businesses.count)")
-                    
                 }
-                
-                
-                //                                DispatchQueue.main.async {
-                //                                    // do something in the main queue
-                //                                    //self.dataContentText.text = jsonString
-                //                                }
                 
             } catch {
                 print("Could not get categories")
                 return
             }
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
         }
         let task = sharedSession.dataTask(with: request, completionHandler: apiCallCompletionHandler)
         task.resume()

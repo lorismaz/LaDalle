@@ -99,6 +99,8 @@ class CategoryTableViewController: UITableViewController, CLLocationManagerDeleg
         if let location = locations.first {
             print("Current location: \(location)")
             
+            locationManager.stopUpdatingLocation()
+            
             let newCoordinates = Coordinates(latitude: Double(location.coordinate.latitude), longitude: Double(location.coordinate.longitude) )
             
             self.coordinates = newCoordinates
@@ -107,7 +109,7 @@ class CategoryTableViewController: UITableViewController, CLLocationManagerDeleg
             
             
         } else {
-            print("wtf \(locations)")
+            //
         }
 
     }
@@ -172,6 +174,7 @@ class CategoryTableViewController: UITableViewController, CLLocationManagerDeleg
                 
                 let category = categories[indexPath.row]
                 destination.categoryAlias = category.alias
+                destination.categoryName = category.title
                 
                 
                 //get current location
