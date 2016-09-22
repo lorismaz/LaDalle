@@ -14,7 +14,7 @@ class BusinessTableViewController: UITableViewController {
     // MARK: Variables
     var businesses = [Business]()
     var category: Category?
-    var coordinates: Coordinates?
+    var userLocation: CLLocation?
     
     //MARK: Outlets and Actions
     @IBOutlet weak var categoryNameLabel: UILabel!
@@ -53,11 +53,11 @@ class BusinessTableViewController: UITableViewController {
             
             guard let currentCategory = self.category else { return }
             
-            if let coordinates = self.coordinates {
+            if let currentLocation = self.userLocation {
                 print(currentCategory.alias)
-                print(coordinates)
+                print(currentLocation)
                 
-                Business.getLocalPlaces(forCategory: currentCategory.alias, coordinates: coordinates, completionHandler: { (business) in
+                Business.getLocalPlaces(forCategory: currentCategory.alias, coordinates: currentLocation, completionHandler: { (business) in
                     
                     self.main.addOperation {
                         //print("reload")
@@ -124,7 +124,7 @@ class BusinessTableViewController: UITableViewController {
             guard let businessDetailViewController = segue.destination as? BusinessDetailsViewController else { return }
             
             businessDetailViewController.business = business
-            businessDetailViewController.coordinates = self.coordinates
+            businessDetailViewController.userLocation = self.userLocation
         }
         
     }

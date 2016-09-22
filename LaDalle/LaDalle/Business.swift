@@ -14,7 +14,7 @@ class Business: NSObject, MKAnnotation {
     let name: String
     let id: String
     let location: Location
-    let coordinates: Coordinates
+    let coordinates: CLLocation
     let rating: Double
     let reviewCount: Int
     let imageUrl: String
@@ -27,7 +27,7 @@ class Business: NSObject, MKAnnotation {
     var subtitle: String?
     
     
-    init(name: String, id: String, location: Location, coordinates: Coordinates, rating: Double, reviewCount: Int, imageUrl: String, url: String) {
+    init(name: String, id: String, location: Location, coordinates: CLLocation, rating: Double, reviewCount: Int, imageUrl: String, url: String) {
         self.name = name
         self.id = id
         self.location = location
@@ -37,7 +37,7 @@ class Business: NSObject, MKAnnotation {
         self.imageUrl = imageUrl
         self.url = url
         
-        self.coordinate = CLLocationCoordinate2D(latitude: coordinates.latitude, longitude: coordinates.longitude)
+        self.coordinate = CLLocationCoordinate2D(latitude: coordinates.coordinate.latitude, longitude: coordinates.coordinate.longitude)
         self.title = name
         
         let address = "\(location.address1), \(location.city), \(location.state) \(location.zipCode)"
@@ -72,8 +72,9 @@ class Business: NSObject, MKAnnotation {
         
         //create coordinates
         guard let coordinatesDictionary = dictionary["coordinates"] as? NSDictionary else { return nil }
-        guard let coordinatesObject = Coordinates.fromDictionary(dictionary: coordinatesDictionary) else { return nil}
-        
+        guard let latitude = coordinatesDictionary["latitude"] as? CLLocationDegrees else { return nil }
+        guard let longitude = coordinatesDictionary["longitude"] as? CLLocationDegrees else { return nil  }
+        let coordinatesObject = CLLocation(latitude: latitude , longitude: longitude)
         
         //Take the data parsed and create a Place Object from it
         return Business(name: name, id: id, location: locationObject, coordinates: coordinatesObject, rating: rating, reviewCount: reviewCount, imageUrl: imageUrl, url: url)
@@ -125,7 +126,7 @@ class Business: NSObject, MKAnnotation {
         print("➡️ Getting reviews for business \(self.name)")
     }
     
-    static func getLocalPlaces(forCategory category: String, coordinates: Coordinates, completionHandler: @escaping ([Business]) -> ()) {
+    static func getLocalPlaces(forCategory category: String, coordinates: CLLocation, completionHandler: @escaping ([Business]) -> ()) {
         
         var arrayOfBusinesses: [Business] = []
         
@@ -135,7 +136,7 @@ class Business: NSObject, MKAnnotation {
         let radius = 1000
         
         // limit distance and limit to open only.
-        let link = "https://api.yelp.com/v3/businesses/search?categories=\(category)&latitude=\(coordinates.latitude)&longitude=\(coordinates.longitude)&radius=\(radius)" //&open_now=true
+        let link = "https://api.yelp.com/v3/businesses/search?categories=\(category)&latitude=\(coordinates.coordinate.latitude)&longitude=\(coordinates.coordinate.longitude)&radius=\(radius)" //&open_now=true
         
         //set headers
         let headers = [
@@ -187,16 +188,9 @@ class Business: NSObject, MKAnnotation {
                     
                     // create business object
                     guard let business = Business.fromDictionary(dictionary: businessDictionary) else { print("can't create a business out of the data"); return }
-                    //print("> \(business.id) | Business: \(business.name), \(business.reviewCount) reviews with a rating of \(business.rating). Coordinates: \(business.coordinates.latitude) x \(business.coordinates.longitude)" )
-                    print("\(business.id)" )
                     
-                    // update data manager
                     arrayOfBusinesses.append(business)
                     completionHandler(arrayOfBusinesses)
-                    
-                    //                    print("business count before append: \(dataManager.businesses.count)")
-                    //                    dataManager.businesses.append(business)
-                    //                    print("business count after append: \(dataManager.businesses.count)")
                     
                 }
                 

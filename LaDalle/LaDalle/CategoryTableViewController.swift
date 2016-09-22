@@ -12,10 +12,9 @@ import CoreLocation
 class CategoryTableViewController: UITableViewController, CLLocationManagerDelegate {
     
     var categories = Category.loadDefaults()
-    var coordinates: Coordinates?
+    var userLocation: CLLocation?
     
     var locationManager: CLLocationManager!
-    var userCoordinates: Coordinates? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,9 +23,9 @@ class CategoryTableViewController: UITableViewController, CLLocationManagerDeleg
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.requestLocation()
+        //locationManager.startUpdatingLocation()
         
-        reload()
+//        reload()
         
         self.tableView.backgroundView = UIImageView(image: UIImage(named: "o-2-blured"))
         self.tableView.backgroundView?.clipsToBounds = true
@@ -52,10 +51,10 @@ class CategoryTableViewController: UITableViewController, CLLocationManagerDeleg
         
         async.addOperation {
             
-            if let coordinates = self.coordinates {
-                print(coordinates)
+            if let userLocation = self.userLocation {
+                print(userLocation)
                 
-                Category.getCategories(for: coordinates, categorySearchCompletionHandler: { (category) in
+                Category.getCategories(for: userLocation, categorySearchCompletionHandler: { (category) in
                     
                     self.main.addOperation {
                         //print("reload")
@@ -65,7 +64,9 @@ class CategoryTableViewController: UITableViewController, CLLocationManagerDeleg
                     
                 })
                 
-            } else { print(">>>>Coordinates not present")}
+            } else {
+                print(">>>>Coordinates not present")
+            }
             
         }
         
@@ -73,20 +74,7 @@ class CategoryTableViewController: UITableViewController, CLLocationManagerDeleg
  
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         if status == .authorizedWhenInUse {
-            if CLLocationManager.isMonitoringAvailable(for: CLBeaconRegion.self) {
-                if CLLocationManager.isRangingAvailable() {
-                    print(">>>>>>>>>>location:")
-                    manager.startUpdatingLocation()
-                    guard let location = manager.location else { return }
-                    
-                    let newCoordinates = Coordinates(latitude: Double(location.coordinate.latitude), longitude: Double(location.coordinate.longitude) )
-                    self.coordinates = newCoordinates
-                    
-                    print("Location \(location.coordinate.latitude) x \(location.coordinate.longitude)")
-                    reload()
-                    
-                }
-            }
+            locationManager.startUpdatingLocation()
         }
     }
     
@@ -96,23 +84,23 @@ class CategoryTableViewController: UITableViewController, CLLocationManagerDeleg
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let location = locations.first {
-            print("Current location: \(location)")
-            
-            locationManager.stopUpdatingLocation()
-            
-            let newCoordinates = Coordinates(latitude: Double(location.coordinate.latitude), longitude: Double(location.coordinate.longitude) )
-            
-            self.coordinates = newCoordinates
-            
-            reload()
-            
-            
-        } else {
-            //
+        
+        
+            if userLocation == nil {
+                userLocation = locations.first
+                reload()
+            } else {
+                guard let latestLocation = locations.first,
+                      let distanceFromPreviousLocation = userLocation?.distance(from: latestLocation)
+                    else { return }
+                
+                if distanceFromPreviousLocation > 200 {
+                    userLocation = latestLocation
+                    print("reloading because distance")
+                    reload()
+                }
+            }
         }
-
-    }
 
     // MARK: - Table view data source
 
@@ -175,13 +163,7 @@ class CategoryTableViewController: UITableViewController, CLLocationManagerDeleg
                 let category = categories[indexPath.row]
                 destination.category = category
                 
-                
-                //get current location
-                guard let location = locationManager.location else { return }
-                
-                self.coordinates = Coordinates(latitude: Double(location.coordinate.latitude), longitude: Double(location.coordinate.longitude) )
-                
-                destination.coordinates = coordinates
+                destination.userLocation = userLocation
             }
         }
         

@@ -14,7 +14,7 @@ class BusinessDetailsViewController: UIViewController, MKMapViewDelegate {
     
     //MARK: Global Declarations
     var business: Business?
-    var coordinates: Coordinates?
+    var userLocation: CLLocation?
     
     //MARK: Properties and Outlets
     @IBOutlet weak var businessMapView: MKMapView!
@@ -50,16 +50,11 @@ class BusinessDetailsViewController: UIViewController, MKMapViewDelegate {
     
     func zoomToBusinessLocation() {
         guard let currentBusiness = self.business else { return }
-        guard let userCoordinate = self.coordinates else { return }
+        guard let userLocation = self.userLocation else { return }
         
         let businessLocation = CLLocation(latitude: currentBusiness.coordinate.latitude, longitude: currentBusiness.coordinate.longitude)
-        //do a check for incorrect region
-        
         
         //get distance between user and business
-        // return 
-        let userLocation = CLLocation(latitude: userCoordinate.latitude, longitude: userCoordinate.longitude)
-        
         let distanceFromBusiness = userLocation.distance(from: businessLocation)
         print("Distance: \(distanceFromBusiness) meters")
         //let distanceFromBusiness = userCoordinate.distance(from: currentBusiness.coordinate)

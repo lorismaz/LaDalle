@@ -7,9 +7,7 @@
 //
 
 import UIKit
-
-
-
+import CoreLocation
 
 struct Category {
     let title: String
@@ -228,7 +226,7 @@ struct Category {
         return categories
     }
     
-    static func getCategories(for coordinates: Coordinates, categorySearchCompletionHandler: @escaping ([Category]) -> ()) {
+    static func getCategories(for coordinates: CLLocation, categorySearchCompletionHandler: @escaping ([Category]) -> ()) {
         
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         
@@ -240,7 +238,7 @@ struct Category {
         let radius = 1000
         
         // limit distance and limit to open only.
-        let link = "https://api.yelp.com/v3/businesses/search?&latitude=\(coordinates.latitude)&longitude=\(coordinates.longitude)&radius=\(radius)" //&open_now=true
+        let link = "https://api.yelp.com/v3/businesses/search?&latitude=\(coordinates.coordinate.latitude)&longitude=\(coordinates.coordinate.longitude)&radius=\(radius)" //&open_now=true
         
         //set headers
         let headers = [
