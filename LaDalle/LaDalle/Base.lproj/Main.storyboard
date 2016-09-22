@@ -32,8 +32,7 @@
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rOK-FE-qJv" customClass="DetailView" customModule="La_Dalle" customModuleProvider="target">
                                             <subviews>
-                                                <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ebq-1g-NLs">
-                                                    <frame key="frameInset" width="1000" height="1000"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ebq-1g-NLs">
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Business Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cfk-Zx-bgP">
                                                             <frame key="frameInset" minX="8" minY="8" width="322" height="40"/>
@@ -63,9 +62,7 @@
                                                         <constraint firstAttribute="height" constant="100" id="Uc7-5M-HVG"/>
                                                     </constraints>
                                                 </view>
-                                                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LB5-8a-CkX">
-                                                    <frame key="frameInset" width="1000" height="1000"/>
-                                                </mapView>
+                                                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LB5-8a-CkX"/>
                                             </subviews>
                                             <color key="backgroundColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
