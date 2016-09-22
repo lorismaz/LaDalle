@@ -124,6 +124,7 @@ class BusinessTableViewController: UITableViewController {
             guard let businessDetailViewController = segue.destination as? BusinessDetailsViewController else { return }
             
             businessDetailViewController.business = business
+            businessDetailViewController.coordinates = self.coordinates
         }
         
     }

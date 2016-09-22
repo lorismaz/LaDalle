@@ -13,6 +13,7 @@ class BusinessDetailsViewController: UIViewController, MKMapViewDelegate {
     
     //MARK: Global Declarations
     var business: Business?
+    var coordinates: Coordinates?
     
     //MARK: Properties and Outlets
     @IBOutlet weak var businessMapView: MKMapView!
@@ -35,8 +36,23 @@ class BusinessDetailsViewController: UIViewController, MKMapViewDelegate {
         
         businessMapView.delegate = self
         
+        zoomToUserLocation()
+        
         populateBusinessInfo()
         
+    }
+    
+    func zoomToUserLocation() {
+    
+        guard let userCoordinates = self.coordinates else { return }
+        
+        let userLocation = CLLocation(latitude: userCoordinates.latitude, longitude: userCoordinates.longitude)
+        //do a check for incorrect region
+        
+        let regionRadius: CLLocationDistance = 1200
+        let coordinateRegion = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, regionRadius, regionRadius)
+        businessMapView.setRegion(coordinateRegion, animated: true)
+    
     }
     
     func populateBusinessInfo() {
