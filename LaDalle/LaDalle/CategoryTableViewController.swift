@@ -129,29 +129,6 @@ class CategoryTableViewController: UITableViewController, CLLocationManagerDeleg
     
     
     // MARK: - Navigation
-
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let row = indexPath.row
-        let category = categories[row]
-        
-        //displayBusinesses(for: category)
-        
-    }
-    
-//    func displayBusinesses(for category: Category) {
-//        
-//        // Get current location
-//        guard let location = locationManager.location else { print("need access to location") ; return }
-//        let latitude = location.coordinate.latitude
-//        let longitude = location.coordinate.longitude
-//        
-//        let coordinates = Coordinates(latitude: latitude, longitude: longitude)
-//        
-//        // search local places
-//        let businesses = yelp.getLocalPlaces(forCategory: category.alias, coordinates: coordinates)
-//        
-//        performSegue(withIdentifier: "ToBusinessTable", sender: nil)
-//    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
