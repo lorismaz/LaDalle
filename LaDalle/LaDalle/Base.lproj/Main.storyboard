@@ -136,6 +136,9 @@
                         </view>
                         <barButtonItem key="rightBarButtonItem" systemItem="action" id="J0G-zK-pMV">
                             <color key="tintColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="actionButtonTapped:" destination="BYZ-38-t0r" id="Lrr-Gd-QKT"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>

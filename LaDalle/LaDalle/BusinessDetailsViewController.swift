@@ -57,7 +57,7 @@ class BusinessDetailsViewController: UIViewController, MKMapViewDelegate {
         
         var activities: [Any] = []
         
-        let message = "Trying out \(business.name), thanks to \"La Dalle\" iOS app that uses the new @Yelp Fusion API by @lorismaz"
+        let message = "Trying out \(business.name), thanks to La Dalle by @lorismaz & the new @Yelp Fusion API"
         
         activities.append(message)
         
@@ -65,9 +65,9 @@ class BusinessDetailsViewController: UIViewController, MKMapViewDelegate {
             activities.append(image)
         }
         
-//        if business.url != "" {
-//            activities.append(business.url)
-//        }
+        if business.url != "" {
+            activities.append(business.url)
+        }
         
         
         let shareSheet = UIActivityViewController(activityItems: activities, applicationActivities: nil)
