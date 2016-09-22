@@ -35,7 +35,13 @@ class BusinessDetailsViewController: UIViewController, MKMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        guard let currentBusiness = business else { return }
+        
+        currentBusiness.getReviews()
+        
         businessMapView.delegate = self
+        
+        
         
         populateBusinessInfo()
         addAnnotation()

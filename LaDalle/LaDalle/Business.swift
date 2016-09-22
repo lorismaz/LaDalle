@@ -19,6 +19,7 @@ class Business: NSObject, MKAnnotation {
     let reviewCount: Int
     let imageUrl: String
     let url: String
+    var reviews: [Review] = []
     
     //MKAnnotation things
     var coordinate: CLLocationCoordinate2D
@@ -119,7 +120,10 @@ class Business: NSObject, MKAnnotation {
             return "rating0"
         }
     }
-
+    
+    func getReviews() {
+        print("➡️ Getting reviews for business \(self.name)")
+    }
     
     static func getLocalPlaces(forCategory category: String, coordinates: Coordinates, completionHandler: @escaping ([Business]) -> ()) {
         
