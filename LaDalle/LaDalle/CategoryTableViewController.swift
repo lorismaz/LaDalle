@@ -173,8 +173,7 @@ class CategoryTableViewController: UITableViewController, CLLocationManagerDeleg
                 guard let destination = segue.destination as? BusinessTableViewController else { return }
                 
                 let category = categories[indexPath.row]
-                destination.categoryAlias = category.alias
-                destination.categoryName = category.title
+                destination.category = category
                 
                 
                 //get current location

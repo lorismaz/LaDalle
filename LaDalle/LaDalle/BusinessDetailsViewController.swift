@@ -65,9 +65,9 @@ class BusinessDetailsViewController: UIViewController, MKMapViewDelegate {
             activities.append(image)
         }
         
-        if business.url != "" {
-            activities.append(business.url)
-        }
+//        if business.url != "" {
+//            activities.append(business.url)
+//        }
         
         
         let shareSheet = UIActivityViewController(activityItems: activities, applicationActivities: nil)

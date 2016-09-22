@@ -12,7 +12,7 @@ import CoreLocation
 class BusinessTableViewController: UITableViewController {
 
     var businesses = [Business]()
-    var categoryAlias: String?
+    var category: Category?
     var coordinates: Coordinates?
     
     override func viewDidLoad() {
@@ -42,11 +42,13 @@ class BusinessTableViewController: UITableViewController {
     
         async.addOperation {
             
-            if let category = self.categoryAlias, let coordinates = self.coordinates {
-                print(category)
+            guard let currentCategory = self.category else { return }
+            
+            if let coordinates = self.coordinates {
+                print(currentCategory.alias)
                 print(coordinates)
                 
-                Business.getLocalPlaces(forCategory: category, coordinates: coordinates, completionHandler: { (business) in
+                Business.getLocalPlaces(forCategory: currentCategory.alias, coordinates: coordinates, completionHandler: { (business) in
                     
                     self.main.addOperation {
                         //print("reload")
