@@ -11,12 +11,21 @@ import CoreLocation
 
 class BusinessTableViewController: UITableViewController {
 
+    // MARK: Variables
     var businesses = [Business]()
     var category: Category?
     var coordinates: Coordinates?
     
+    //MARK: Outlets and Actions
+    @IBOutlet weak var categoryNameLabel: UILabel!
+    
+    // MARK: App Functions
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        guard let currentCategory = self.category else { return }
+        
+        categoryNameLabel.text = currentCategory.title
         
         print(">>>let's do this>>>")
 
