@@ -16,8 +16,9 @@ class Business {
     let rating: Double
     let reviewCount: Int
     let imageUrl: String
+    let url: String
     
-    init(name: String, id: String, location: Location, coordinates: Coordinates, rating: Double, reviewCount: Int, imageUrl: String) {
+    init(name: String, id: String, location: Location, coordinates: Coordinates, rating: Double, reviewCount: Int, imageUrl: String, url: String) {
         self.name = name
         self.id = id
         self.location = location
@@ -25,10 +26,7 @@ class Business {
         self.rating = rating
         self.reviewCount = reviewCount
         self.imageUrl = imageUrl
-    }
-    
-    func loadImage(from url: String) {
-        print(url)
+        self.url = url
     }
     
     static func fromDictionary(dictionary: NSDictionary) -> Business? {
@@ -38,7 +36,8 @@ class Business {
             let id = dictionary["id"] as? String,
             let rating = dictionary["rating"] as? Double,
             let reviewCount = dictionary["review_count"] as? Int,
-            let imageUrl = dictionary["image_url"] as? String
+            let imageUrl = dictionary["image_url"] as? String,
+            let url = dictionary["url"] as? String
             else {
                 print("Error creating object from dictionary")
                 return nil
@@ -55,7 +54,7 @@ class Business {
         
         
         //Take the data parsed and create a Place Object from it
-        return Business(name: name, id: id, location: locationObject, coordinates: coordinatesObject, rating: rating, reviewCount: reviewCount, imageUrl: imageUrl)
+        return Business(name: name, id: id, location: locationObject, coordinates: coordinatesObject, rating: rating, reviewCount: reviewCount, imageUrl: imageUrl, url: url)
     }
     
     static func getImage(from url: String) -> UIImage? {
@@ -103,6 +102,8 @@ class Business {
     
     static func getLocalPlaces(forCategory category: String, coordinates: Coordinates, completionHandler: @escaping ([Business]) -> ()) {
         
+        turnNetworkIndicatorOn()
+        
         var arrayOfBusinesses: [Business] = []
         
         let accessToken = valueForAPIKey(named: "YELP_API_ACCESS_TOKEN")
@@ -126,9 +127,6 @@ class Business {
         request.httpMethod = "GET"
         request.allHTTPHeaderFields = headers
         
-        //        request.httpBody = bodyData.data(using: .utf8)
-        
-        
         //create sharedSession
         let sharedSession = URLSession.shared
         
@@ -137,6 +135,7 @@ class Business {
             
             guard let data = data, error == nil else {
                 // check for networking error
+                turnNetworkIndicatorOff()
                 print("error=\(error)")
                 return
             }
@@ -153,16 +152,39 @@ class Business {
                 let jsonObject = try JSONSerialization.jsonObject(with: data, options:
                     JSONSerialization.ReadingOptions.allowFragments)
                 
-                guard let result = jsonObject as? NSDictionary else { print("result is not a dictionary"); return }
-                guard let total = result["total"] as? Int else { print("no total available"); return }
-                guard total > 0 else { print("Search returned 0 results") ; return }
-                guard let businesses = result["businesses"] as? NSArray else { print("business is not an array"); return }
+                guard let result = jsonObject as? NSDictionary else {
+                    print("result is not a dictionary")
+                    turnNetworkIndicatorOff()
+                    return
+                }
+                guard let total = result["total"] as? Int else {
+                    print("no total available")
+                    turnNetworkIndicatorOff()
+                    return
+                }
+                guard total > 0 else {
+                    print("Search returned 0 results")
+                    turnNetworkIndicatorOff()
+                    return
+                }
+                guard let businesses = result["businesses"] as? NSArray else {
+                    print("business is not an array")
+                    turnNetworkIndicatorOff()
+                    return
+                }
                 
                 for businessObject in businesses {
-                    guard let businessDictionary = businessObject as? NSDictionary else { print("businessDict is not a dictionary"); return }
+                    guard let businessDictionary = businessObject as? NSDictionary else {
+                        print("businessDict is not a dictionary")
+                        turnNetworkIndicatorOff()
+                        return
+                    }
                     
                     // create business object
-                    guard let business = Business.fromDictionary(dictionary: businessDictionary) else { print("can't create a business out of the data"); return }
+                    guard let business = Business.fromDictionary(dictionary: businessDictionary)    else {
+                        print("can't create a business out of the data")
+                        turnNetworkIndicatorOff()
+                        return }
                     //print("> \(business.id) | Business: \(business.name), \(business.reviewCount) reviews with a rating of \(business.rating). Coordinates: \(business.coordinates.latitude) x \(business.coordinates.longitude)" )
                     print("\(business.id)" )
                     
@@ -170,24 +192,17 @@ class Business {
                     arrayOfBusinesses.append(business)
                     completionHandler(arrayOfBusinesses)
                     
-                    //                    print("business count before append: \(dataManager.businesses.count)")
-                    //                    dataManager.businesses.append(business)
-                    //                    print("business count after append: \(dataManager.businesses.count)")
-                    
                 }
-                
-                
-                //                                DispatchQueue.main.async {
-                //                                    // do something in the main queue
-                //                                    //self.dataContentText.text = jsonString
-                //                                }
                 
             } catch {
                 print("Could not get places")
+                turnNetworkIndicatorOff()
                 return
             }
-            
+            turnNetworkIndicatorOff()
         }
+        
+        turnNetworkIndicatorOff()
         
         // set dataTask
         let dataTask = sharedSession.dataTask(with: request, completionHandler: completionHandler)
@@ -197,6 +212,14 @@ class Business {
         
         return
         
+    }
+    
+    private static func turnNetworkIndicatorOff() {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+    }
+    
+    private static func turnNetworkIndicatorOn() {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
     }
     
 }
