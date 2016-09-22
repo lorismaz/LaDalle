@@ -10,22 +10,13 @@ import UIKit
 import CoreLocation
 
 class BusinessTableViewController: UITableViewController {
-    
-    @IBOutlet weak var categoryNameLabel: UILabel!
-    
+
     var businesses = [Business]()
     var categoryAlias: String?
-    var categoryName: String?
     var coordinates: Coordinates?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        guard let categoryName = categoryName else {
-            return
-        }
-        
-        categoryNameLabel.text = categoryName
         
         print(">>>let's do this>>>")
 
@@ -50,7 +41,6 @@ class BusinessTableViewController: UITableViewController {
     func reload() {
     
         async.addOperation {
-
             
             if let category = self.categoryAlias, let coordinates = self.coordinates {
                 print(category)
