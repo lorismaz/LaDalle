@@ -13,11 +13,9 @@ class CategoryTableViewController: UITableViewController, CLLocationManagerDeleg
     
     var categories = Category.loadDefaults()
     var coordinates: Coordinates?
-    //let searchController = UISearchController(searchResultsController: nil)
     
     var locationManager: CLLocationManager!
     var userCoordinates: Coordinates? = nil
-    //let yelp = Yelp.sharedInstance
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,12 +24,52 @@ class CategoryTableViewController: UITableViewController, CLLocationManagerDeleg
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestLocation()
+        
+        reload()
         
         self.tableView.backgroundView = UIImageView(image: UIImage(named: "o-2-blured"))
         self.tableView.backgroundView?.clipsToBounds = true
         
     }
     
+    //The Main OperationQueue is where any UI changes or updates happen
+    private let main = OperationQueue.main
+    
+    //The Async OperationQueue is where any background tasks such as
+    //Loading from the network, and parsing JSON happen.
+    //This makes sure the Main UI stays sharp, responsive, and smooth
+    private let async: OperationQueue = {
+        //The Queue is being created by this closure
+        let operationQueue = OperationQueue()
+        //This represents how many tasks can run at the same time, in this case 8 tasks
+        //That means that we can load 8 images at a time
+        operationQueue.maxConcurrentOperationCount = 8
+        return operationQueue
+    }()
+    
+    func reload() {
+        
+        async.addOperation {
+            
+            if let coordinates = self.coordinates {
+                print(coordinates)
+                
+                Category.getCategories(for: coordinates, categorySearchCompletionHandler: { (category) in
+                    
+                    self.main.addOperation {
+                        //print("reload")
+                        self.categories = category
+                        self.tableView.reloadData()
+                    }
+                    
+                })
+                
+            } else { print(">>>>Coordinates not present")}
+            
+        }
+        
+    }
  
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         if status == .authorizedWhenInUse {
@@ -41,13 +79,37 @@ class CategoryTableViewController: UITableViewController, CLLocationManagerDeleg
                     manager.startUpdatingLocation()
                     guard let location = manager.location else { return }
                     
-                    self.coordinates = Coordinates(latitude: Double(location.coordinate.latitude), longitude: Double(location.coordinate.longitude) )
+                    let newCoordinates = Coordinates(latitude: Double(location.coordinate.latitude), longitude: Double(location.coordinate.longitude) )
+                    self.coordinates = newCoordinates
                     
                     print("Location \(location.coordinate.latitude) x \(location.coordinate.longitude)")
+                    reload()
                     
                 }
             }
         }
+    }
+    
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("Error finding location: \(error.localizedDescription)")
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let location = locations.first {
+            print("Current location: \(location)")
+            
+            let newCoordinates = Coordinates(latitude: Double(location.coordinate.latitude), longitude: Double(location.coordinate.longitude) )
+            
+            self.coordinates = newCoordinates
+            
+            reload()
+            
+            
+        } else {
+            print("wtf \(locations)")
+        }
+
     }
 
     // MARK: - Table view data source

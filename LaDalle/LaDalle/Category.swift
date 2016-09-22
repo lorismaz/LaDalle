@@ -228,12 +228,106 @@ struct Category {
         return categories
     }
     
-    static func getCount(for coordinates: Coordinates) -> Int {
-        var count = 0
-        //for each category
-        //        call yelp to get results with location.
-        return count
+    static func getCategories(for coordinates: Coordinates, categorySearchCompletionHandler: @escaping ([Category]) -> ()) {
+        
+        var arrayOfCategories: [Category] = []
+        
+        let accessToken = valueForAPIKey(named: "YELP_API_ACCESS_TOKEN")
+        
+        //if radius return 0 results then increase the radius
+        let radius = 2011
+        
+        // limit distance and limit to open only.
+        let link = "https://api.yelp.com/v3/businesses/search?&latitude=\(coordinates.latitude)&longitude=\(coordinates.longitude)&radius=\(radius)" //&open_now=true
+        
+        //set headers
+        let headers = [
+            "Authorization": "Bearer \(accessToken)"
+        ]
+        
+        guard let url = URL(string: link) else { return }
+        
+        //set request
+        var request = URLRequest.init(url: url)
+        
+        request.httpMethod = "GET"
+        request.allHTTPHeaderFields = headers
+        
+        let sharedSession = URLSession.shared
+        let apiCallCompletionHandler: (Data?, URLResponse?, Error?) -> Void = { data, response, error in
+            // this is where the completion handler code goes
+            guard let data = data, error == nil else {
+                // check for networking error
+                print("error=\(error)")
+                return
+            }
+            
+            if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {           // check for http errors
+                print("statusCode should be 200, but is \(httpStatus.statusCode)")
+                print("response = \(response)")
+            }
+            
+            //let responseString = String(data: data, encoding: .utf8)
+            //print("responseString = \(responseString)")
+            
+            do {
+                let jsonObject = try JSONSerialization.jsonObject(with: data, options:
+                    JSONSerialization.ReadingOptions.allowFragments)
+                
+                guard let result = jsonObject as? NSDictionary else { print("result is not a dictionary"); return }
+                guard let total = result["total"] as? Int else { print("no total available"); return }
+                guard total > 0 else { print("Search returned 0 results") ; return }
+                guard let businesses = result["businesses"] as? NSArray else { print("business is not an array"); return }
+                
+                for businessObject in businesses {
+                    guard let businessDictionary = businessObject as? NSDictionary else { print("businessDict is not a dictionary"); return }
+                    
+                    // create business object
+//                    guard let business = Business.fromDictionary(dictionary: businessDictionary) else { print("can't create a business out of the data"); return }
+                    guard let categories = businessDictionary["categories"] as? NSArray else { print("error parsing categories as an array"); return }
+                    
+                    
+                    for categoryObject in categories {
+                        guard let categoryDictionary = categoryObject as? NSDictionary else { return }
+                        guard let category = Category.fromDictionary(dictionary: categoryDictionary) else { print("can't create a category out of the data"); return }
+                        //if category not yet in array >
+                        print("\(category)" )
+                        
+                        if arrayOfCategories.contains( where: { $0.alias == category.alias }) {
+                            print("Category already there")
+                        } else {
+                            print("New category, let's add it")
+                            arrayOfCategories.append(category)
+                        }
+                        
+                    }
+                    
+                    // update data manager
+                    
+                    categorySearchCompletionHandler(arrayOfCategories)
+                    
+                    //                    print("business count before append: \(dataManager.businesses.count)")
+                    //                    dataManager.businesses.append(business)
+                    //                    print("business count after append: \(dataManager.businesses.count)")
+                    
+                }
+                
+                
+                //                                DispatchQueue.main.async {
+                //                                    // do something in the main queue
+                //                                    //self.dataContentText.text = jsonString
+                //                                }
+                
+            } catch {
+                print("Could not get categories")
+                return
+            }
+        }
+        let task = sharedSession.dataTask(with: request, completionHandler: apiCallCompletionHandler)
+        task.resume()
+        
     }
+    
 }
 
 
