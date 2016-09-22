@@ -93,9 +93,17 @@ class BusinessTableViewController: UITableViewController {
         
         cell.businessNameLabel.text = business.name
         
-        if let image = Business.getImage(from: business.imageUrl) {
-            cell.businessImageView.image = image
+        
+        //TODO: need 
+        async.addOperation {
+            
+            if let image = Business.getImage(from: business.imageUrl) {
+                cell.businessImageView.image = image
+            }
+            
         }
+        
+        
 
         return cell
     }
