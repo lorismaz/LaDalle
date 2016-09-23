@@ -330,13 +330,15 @@ class Business: NSObject, MKAnnotation {
         let accessToken = valueForAPIKey(named: "YELP_API_ACCESS_TOKEN")
         
         let link = "https://api.yelp.com/v3/businesses/\(self.id)"
+        guard let escapedLink = link.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return }
+        //TODO: string by
         
         //set headers
         let headers = [
             "Authorization": "Bearer \(accessToken)"
         ]
         
-        guard let url = URL(string: link) else { return }
+        guard let url = URL(string: escapedLink) else { print("This is not a correct url: \(escapedLink)");return }
         
         //set request
         var request = URLRequest.init(url: url)
