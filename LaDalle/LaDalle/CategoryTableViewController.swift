@@ -12,11 +12,9 @@ import CoreLocation
 class CategoryTableViewController: UITableViewController, CLLocationManagerDelegate {
     
     var categories = Category.loadDefaults()
-    
-    //let searchController = UISearchController(searchResultsController: nil)
+    var userLocation: CLLocation?
     
     var locationManager: CLLocationManager!
-    var userCoordinates: Coordinates? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,31 +23,88 @@ class CategoryTableViewController: UITableViewController, CLLocationManagerDeleg
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
-
+        //locationManager.startUpdatingLocation()
+        
+        //reload()
+        refreshControl = UIRefreshControl()
+        
+        refreshControl?.addTarget(self, action: #selector(self.reload), for: .valueChanged)
+        
+        self.tableView.backgroundView = UIImageView(image: UIImage(named: "o-2-blured"))
+        self.tableView.backgroundView?.clipsToBounds = true
+        
     }
     
+    //The Main OperationQueue is where any UI changes or updates happen
+    private let main = OperationQueue.main
+    
+    //The Async OperationQueue is where any background tasks such as
+    //Loading from the network, and parsing JSON happen.
+    //This makes sure the Main UI stays sharp, responsive, and smooth
+    private let async: OperationQueue = {
+        //The Queue is being created by this closure
+        let operationQueue = OperationQueue()
+        //This represents how many tasks can run at the same time, in this case 8 tasks
+        //That means that we can load 8 images at a time
+        operationQueue.maxConcurrentOperationCount = 8
+        return operationQueue
+    }()
+    
+    func reload() {
+        
+        async.addOperation {
+            
+            if let userLocation = self.userLocation {
+                print(userLocation)
+                
+                Category.getCategories(for: userLocation, categorySearchCompletionHandler: { (category) in
+                    
+                    self.main.addOperation {
+                        //print("reload")
+                        self.refreshControl?.endRefreshing()
+                        self.categories = category
+                        self.tableView.reloadData()
+                    }
+                    
+                })
+                
+            } else {
+                print(">>>>Coordinates not present")
+            }
+            
+        }
+        
+    }
  
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         if status == .authorizedWhenInUse {
-            if CLLocationManager.isMonitoringAvailable(for: CLBeaconRegion.self) {
-                if CLLocationManager.isRangingAvailable() {
-                    print(">>>>>>>>>>location:")
-                    manager.startUpdatingLocation()
-                    guard let location = manager.location else { return }
-                    
-                    let coordinates = Coordinates(latitude: Double(location.coordinate.latitude), longitude: Double(location.coordinate.longitude) )
-                    
-                    print("Location \(location.coordinate.latitude) x \(location.coordinate.longitude)")
-                    
-                    
-                    // move this to
-                    Yelp.sharedInstance.getLocalPlaces(forCategory: "sushi", coordinates: coordinates)
-                    
-                    
+            locationManager.startUpdatingLocation()
+        }
+    }
+    
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("Error finding location: \(error.localizedDescription)")
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+        
+            if userLocation == nil {
+                userLocation = locations.first
+                reload()
+            } else {
+                guard let latestLocation = locations.first,
+                      let distanceFromPreviousLocation = userLocation?.distance(from: latestLocation)
+                    else { return }
+                
+                if distanceFromPreviousLocation > 200 {
+                    userLocation = latestLocation
+                    print("reloading because distance")
+                    reload()
                 }
             }
         }
-    }
 
     // MARK: - Table view data source
 
@@ -76,14 +131,24 @@ class CategoryTableViewController: UITableViewController, CLLocationManagerDeleg
     }
 
     
-    /*
+    
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        
+        
+        if segue.identifier == "ToBusinessTable" {
+            if let indexPath = tableView.indexPathForSelectedRow {
+                guard let destination = segue.destination as? BusinessTableViewController else { return }
+                
+                let category = categories[indexPath.row]
+                destination.category = category
+                
+                destination.userLocation = userLocation
+            }
+        }
+        
     }
-    */
+ 
 
 }
