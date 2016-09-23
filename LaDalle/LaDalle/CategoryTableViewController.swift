@@ -25,7 +25,10 @@ class CategoryTableViewController: UITableViewController, CLLocationManagerDeleg
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         //locationManager.startUpdatingLocation()
         
-//        reload()
+        //reload()
+        refreshControl = UIRefreshControl()
+        
+        refreshControl?.addTarget(self, action: #selector(self.reload), for: .valueChanged)
         
         self.tableView.backgroundView = UIImageView(image: UIImage(named: "o-2-blured"))
         self.tableView.backgroundView?.clipsToBounds = true
@@ -58,6 +61,7 @@ class CategoryTableViewController: UITableViewController, CLLocationManagerDeleg
                     
                     self.main.addOperation {
                         //print("reload")
+                        self.refreshControl?.endRefreshing()
                         self.categories = category
                         self.tableView.reloadData()
                     }
