@@ -164,19 +164,16 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="pkI-qg-cF9">
-                        <nil key="title"/>
                         <view key="titleView" contentMode="scaleToFill" id="YWR-lH-cPi">
                             <rect key="frame" x="45" y="6" width="278" height="33"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="La Dalle" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vpJ-CT-PeY">
-                                    <frame key="frameInset" minY="6" width="284" height="21"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                    <color key="textColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="topbarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Vvu-Ab-Tld"/>
                             </subviews>
+                            <constraints>
+                                <constraint firstItem="Vvu-Ab-Tld" firstAttribute="centerX" secondItem="YWR-lH-cPi" secondAttribute="centerX" id="1xa-6b-9pa"/>
+                                <constraint firstItem="Vvu-Ab-Tld" firstAttribute="centerY" secondItem="YWR-lH-cPi" secondAttribute="centerY" id="6e3-ry-ilJ"/>
+                            </constraints>
                         </view>
                         <barButtonItem key="rightBarButtonItem" systemItem="action" id="J0G-zK-pMV">
                             <color key="tintColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -278,14 +275,12 @@
                             <rect key="frame" x="113" y="6" width="150" height="33"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="La Dalle" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DEH-O6-mD7">
-                                    <frame key="frameInset" minY="6" width="150" height="27"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="26"/>
-                                    <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="topbarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="xI8-CU-G2S"/>
                             </subviews>
+                            <constraints>
+                                <constraint firstItem="xI8-CU-G2S" firstAttribute="centerY" secondItem="Gfm-aG-mFK" secondAttribute="centerY" id="EuT-Ws-jxg"/>
+                                <constraint firstItem="xI8-CU-G2S" firstAttribute="centerX" secondItem="Gfm-aG-mFK" secondAttribute="centerX" id="U4C-EN-Hcs"/>
+                            </constraints>
                         </view>
                     </navigationItem>
                     <connections>
@@ -479,6 +474,7 @@
         <image name="o-2" width="452" height="500"/>
         <image name="placeholder" width="1125" height="1008"/>
         <image name="rating50" width="106" height="18"/>
+        <image name="topbarIcon" width="30" height="30"/>
         <image name="yelp-2c-outline" width="675" height="383"/>
     </resources>
     <inferredMetricsTieBreakers>
