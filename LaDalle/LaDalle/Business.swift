@@ -85,6 +85,7 @@ class Business: NSObject, MKAnnotation {
         guard let imageUrl = URL(string: url) else { return nil  }
         
         do {
+            UIApplication.shared.isNetworkActivityIndicatorVisible = true
             let imageData = try Data(contentsOf: imageUrl)
             
             guard let image = UIImage(data: imageData) else { return nil }
@@ -92,7 +93,7 @@ class Business: NSObject, MKAnnotation {
         } catch {
             print("Could not create an image out of provided link")
         }
-        
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
         return nil
     }
     
@@ -123,6 +124,9 @@ class Business: NSObject, MKAnnotation {
     }
     
     func getReviews(completionHandler: @escaping ([Review]) -> ()) {
+        
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        
         print("➡️ Getting reviews for business \(self.name)")
         
         var arrayOfReviews: [Review] = []
@@ -190,7 +194,7 @@ class Business: NSObject, MKAnnotation {
                 print("Could not get reviews")
                 return
             }
-            
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
         }
         
         // set dataTask
@@ -203,6 +207,8 @@ class Business: NSObject, MKAnnotation {
     }
     
     static func getLocalPlaces(forCategory category: String, coordinates: CLLocation, completionHandler: @escaping ([Business]) -> ()) {
+        
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         
         var arrayOfBusinesses: [Business] = []
         
@@ -280,7 +286,7 @@ class Business: NSObject, MKAnnotation {
                 print("Could not get places")
                 return
             }
-            
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
         }
         
         // set dataTask
