@@ -198,34 +198,6 @@
             </objects>
             <point key="canvasLocation" x="3516" y="136.28185907046478"/>
         </scene>
-        <!--Table View Controller-->
-        <scene sceneID="r0b-4E-k7n">
-            <objects>
-                <tableViewController id="lkf-2C-Rb3" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="I9R-aK-81G">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="phQ-eW-Aq7">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="phQ-eW-Aq7" id="YVC-6i-b36">
-                                    <frame key="frameInset" width="375" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="lkf-2C-Rb3" id="yb3-bH-ist"/>
-                            <outlet property="delegate" destination="lkf-2C-Rb3" id="yK9-4d-6GC"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="eYf-6d-x2s" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4495" y="-179"/>
-        </scene>
         <!--Category Table View Controller-->
         <scene sceneID="xDK-is-WyO">
             <objects>
@@ -505,7 +477,7 @@
     </scenes>
     <resources>
         <image name="o-2" width="452" height="500"/>
-        <image name="placeholder" width="1024" height="1024"/>
+        <image name="placeholder" width="1125" height="1008"/>
         <image name="rating50" width="106" height="18"/>
         <image name="yelp-2c-outline" width="675" height="383"/>
     </resources>
