@@ -136,21 +136,9 @@ class CategoryTableViewController: UITableViewController, CLLocationManagerDeleg
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        
-//        if segue.identifier == "ToBusinessGame" {
-//            if let indexPath = tableView.indexPathForSelectedRow {
-//                guard let destination = segue.destination as? BusinessTableViewController else { return }
-//                
-//                let category = categories[indexPath.row]
-//                destination.category = category
-//                
-//                destination.userLocation = userLocation
-//            }
-//        }
-        
         if segue.identifier == "ToBusinessGame" {
             if let indexPath = tableView.indexPathForSelectedRow {
-                guard let destination = segue.destination as? BusinessTableViewController else { return }
+                guard let destination = segue.destination as? SwipeGameViewController else { return }
                 
                 let category = categories[indexPath.row]
                 destination.category = category

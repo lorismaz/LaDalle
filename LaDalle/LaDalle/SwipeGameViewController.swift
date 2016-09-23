@@ -43,11 +43,14 @@ class SwipeGameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        guard let selectedCategory = self.category else { return }
-        
-        categoryNameLable.text = selectedCategory.title
-        
         getPhotosFromLocalBusinesses()
+        
+        guard let currentCategory = self.category else {
+            return
+        }
+        categoryNameLable.text = currentCategory.title
+        
+        
         
     }
     
@@ -61,8 +64,10 @@ class SwipeGameViewController: UIViewController {
     }
     
     func getPhotosFromLocalBusinesses() {
-        print("📷 Getting photos ....")
-    
+        var arrayOfPhotos: [UIImage] = []
+        print("Getting businesses ....")
+        
+        print("For each business, 📷 getting photos ....")
     }
     
     //The Main OperationQueue is where any UI changes or updates happen
