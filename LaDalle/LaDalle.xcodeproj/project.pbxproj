@@ -18,6 +18,7 @@
 		AB868CFD1D947F1E00549948 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB868CFC1D947F1E00549948 /* Review.swift */; };
 		AB868CFF1D9481D900549948 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB868CFE1D9481D900549948 /* User.swift */; };
 		AB868D011D949A9300549948 /* ReviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB868D001D949A9300549948 /* ReviewCell.swift */; };
+		ABA7873F1D95B09000BA2C11 /* SwipeGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA7873E1D95B09000BA2C11 /* SwipeGameViewController.swift */; };
 		ABA8237A1D8C9B1300F618D2 /* BusinessDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA823791D8C9B1300F618D2 /* BusinessDetailsViewController.swift */; };
 		ABA823821D904E6000F618D2 /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA823811D904E6000F618D2 /* CategoryTableViewController.swift */; };
 		ABA823841D904E8A00F618D2 /* Yelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA823831D904E8A00F618D2 /* Yelp.swift */; };
@@ -44,6 +45,7 @@
 		AB868CFC1D947F1E00549948 /* Review.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 		AB868CFE1D9481D900549948 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		AB868D001D949A9300549948 /* ReviewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewCell.swift; sourceTree = "<group>"; };
+		ABA7873E1D95B09000BA2C11 /* SwipeGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeGameViewController.swift; sourceTree = "<group>"; };
 		ABA823791D8C9B1300F618D2 /* BusinessDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessDetailsViewController.swift; sourceTree = "<group>"; };
 		ABA823811D904E6000F618D2 /* CategoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
 		ABA823831D904E8A00F618D2 /* Yelp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Yelp.swift; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 		ABA823971D90A69300F618D2 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				ABA7873E1D95B09000BA2C11 /* SwipeGameViewController.swift */,
 				AB33CD041D8C5C0B002E4BA4 /* BusinessTableViewController.swift */,
 				ABA823811D904E6000F618D2 /* CategoryTableViewController.swift */,
 				ABA823791D8C9B1300F618D2 /* BusinessDetailsViewController.swift */,
@@ -237,6 +240,7 @@
 				ABA8238F1D907A3800F618D2 /* Location.swift in Sources */,
 				AB4476781D8C722B005F892B /* BusinessCell.swift in Sources */,
 				AB868CFF1D9481D900549948 /* User.swift in Sources */,
+				ABA7873F1D95B09000BA2C11 /* SwipeGameViewController.swift in Sources */,
 				ABA823821D904E6000F618D2 /* CategoryTableViewController.swift in Sources */,
 				AB868CFD1D947F1E00549948 /* Review.swift in Sources */,
 				ABA823961D907A9900F618D2 /* Business.swift in Sources */,

@@ -36,7 +36,7 @@
                                                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="95" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jx3-jM-3xh">
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <view key="tableHeaderView" contentMode="scaleToFill" id="cDb-6X-AVu">
-                                                        <rect key="frame" x="0.0" y="0.0" width="338" height="350"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="337.5" height="350"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <subviews>
                                                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LB5-8a-CkX">
@@ -87,10 +87,10 @@
                                                     </view>
                                                     <prototypes>
                                                         <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ReviewCell" rowHeight="95" id="AhW-Id-9no" customClass="ReviewCell" customModule="La_Dalle" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="378" width="338" height="95"/>
+                                                            <rect key="frame" x="0.0" y="378" width="337.5" height="95"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="AhW-Id-9no" id="i7k-yv-aIF">
-                                                                <frame key="frameInset" width="338" height="95"/>
+                                                                <frame key="frameInset" width="337.5" height="95"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
                                                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Review content" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d8H-bt-ydI">
@@ -284,7 +284,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="categoryNameLabel" destination="3W8-Dd-n1w" id="LrX-6F-toY"/>
-                                    <segue destination="ehS-1e-rMs" kind="show" identifier="ToBusinessTable" id="yGj-Ah-7Wg"/>
+                                    <segue destination="UmF-x9-sv2" kind="show" identifier="ToBusinessGame" id="vzm-QV-pfs"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -309,9 +309,6 @@
                             </constraints>
                         </view>
                     </navigationItem>
-                    <connections>
-                        <segue destination="UmF-x9-sv2" kind="show" identifier="ToBusinessGame" id="MrG-d6-YzN"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R6m-Ma-rM4" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="z8O-i9-fcI">
@@ -321,10 +318,10 @@
             </objects>
             <point key="canvasLocation" x="1597.5999999999999" y="158.77061469265368"/>
         </scene>
-        <!--View Controller-->
+        <!--Swipe Game View Controller-->
         <scene sceneID="OIX-65-Mbg">
             <objects>
-                <viewController id="UmF-x9-sv2" sceneMemberID="viewController">
+                <viewController id="UmF-x9-sv2" customClass="SwipeGameViewController" customModule="La_Dalle" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="tfX-Zr-8Kl"/>
                         <viewControllerLayoutGuide type="bottom" id="wro-ce-Vsi"/>
@@ -333,38 +330,75 @@
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="o-2" translatesAutoresizingMaskIntoConstraints="NO" id="VxX-7v-6BD"/>
-                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jIG-gp-2pj">
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Pzz-QN-2nD">
-                                    <frame key="frameInset"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="...later" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bPB-Ps-KPK">
-                                            <frame key="frameInset" minX="103" minY="312" width="169" height="43"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </view>
-                                <blurEffect style="light"/>
-                            </visualEffectView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="o-2-blured" translatesAutoresizingMaskIntoConstraints="NO" id="VxX-7v-6BD">
+                                <frame key="frameInset" width="375" height="603"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <view opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="OE5-SF-AyI" customClass="DetailView" customModule="La_Dalle" customModuleProvider="target">
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pattern" translatesAutoresizingMaskIntoConstraints="NO" id="bFa-aD-cE6">
+                                        <frame key="frameInset" width="337" height="389"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="voteYes" translatesAutoresizingMaskIntoConstraints="NO" id="eRR-IY-Ot1">
+                                        <frame key="frameInset" minX="210" minY="424" width="81" height="81"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wgm-n6-9rI">
+                                        <frame key="frameInset" minX="210" minY="424" width="81" height="81"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <connections>
+                                            <action selector="checkMarkTapped:" destination="UmF-x9-sv2" eventType="touchUpInside" id="UYR-zs-mXz"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yHg-VF-ahO">
+                                        <frame key="frameInset" minX="45" minY="424" width="81" height="81"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <connections>
+                                            <action selector="discardTapped:" destination="UmF-x9-sv2" eventType="touchUpInside" id="VXA-D2-Wo1"/>
+                                        </connections>
+                                    </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="voteNo" translatesAutoresizingMaskIntoConstraints="NO" id="EbZ-je-tlU">
+                                        <frame key="frameInset" minX="45" minY="424" width="81" height="81"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="wro-ce-Vsi" firstAttribute="top" secondItem="VxX-7v-6BD" secondAttribute="bottom" id="4Os-HZ-NSW"/>
-                            <constraint firstAttribute="trailing" secondItem="VxX-7v-6BD" secondAttribute="trailing" id="53H-ZT-tma"/>
-                            <constraint firstItem="jIG-gp-2pj" firstAttribute="centerY" secondItem="Tl8-Il-3Hu" secondAttribute="centerY" id="Omg-gu-hEm"/>
-                            <constraint firstItem="jIG-gp-2pj" firstAttribute="width" secondItem="VxX-7v-6BD" secondAttribute="width" id="VDN-fh-Jhk"/>
-                            <constraint firstItem="VxX-7v-6BD" firstAttribute="leading" secondItem="Tl8-Il-3Hu" secondAttribute="leading" id="jWb-ga-Nw4"/>
-                            <constraint firstItem="VxX-7v-6BD" firstAttribute="top" secondItem="Tl8-Il-3Hu" secondAttribute="top" id="lXQ-dr-fZx"/>
-                            <constraint firstItem="jIG-gp-2pj" firstAttribute="centerX" secondItem="Tl8-Il-3Hu" secondAttribute="centerX" id="rqf-tx-n9J"/>
-                            <constraint firstItem="jIG-gp-2pj" firstAttribute="height" secondItem="VxX-7v-6BD" secondAttribute="height" id="yVN-zN-2cZ"/>
+                            <constraint firstItem="OE5-SF-AyI" firstAttribute="height" secondItem="Tl8-Il-3Hu" secondAttribute="height" multiplier="0.9" id="XdF-Jc-aYR"/>
+                            <constraint firstItem="OE5-SF-AyI" firstAttribute="width" secondItem="Tl8-Il-3Hu" secondAttribute="width" multiplier="0.9" id="gcG-HS-1M6"/>
+                            <constraint firstItem="OE5-SF-AyI" firstAttribute="centerX" secondItem="Tl8-Il-3Hu" secondAttribute="centerX" id="gi4-xq-mRn"/>
+                            <constraint firstItem="OE5-SF-AyI" firstAttribute="centerY" secondItem="Tl8-Il-3Hu" secondAttribute="centerY" id="icH-uC-DFJ"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="Hw7-mA-b3F">
+                        <view key="titleView" contentMode="scaleToFill" id="QMy-Is-rTU">
+                            <rect key="frame" x="56" y="6" width="264" height="33"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Category Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w3g-ms-HwQ">
+                                    <frame key="frameInset" minX="8" minY="6" width="248" height="21"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="17"/>
+                                    <color key="textColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        </view>
+                    </navigationItem>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="show" identifier="ToBusinessFound" id="Pew-yA-Afz"/>
+                        <outlet property="categoryNameLable" destination="w3g-ms-HwQ" id="i9h-9e-i03"/>
+                        <outlet property="currentPhotoImageView" destination="bFa-aD-cE6" id="Bwy-bt-jhk"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="ToBusinessDetail" id="Pew-yA-Afz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bAy-wu-2O5" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -376,7 +410,7 @@
             <objects>
                 <tableViewController id="ehS-1e-rMs" customClass="BusinessTableViewController" customModule="La_Dalle" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="336" sectionHeaderHeight="28" sectionFooterHeight="28" id="xSB-aQ-6yx">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
@@ -494,7 +528,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Pq6-my-aia" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="YGP-xP-wve">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" translucent="NO" id="YGP-xP-wve">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -515,12 +549,15 @@
     </scenes>
     <resources>
         <image name="o-2" width="452" height="500"/>
+        <image name="o-2-blured" width="905" height="1000"/>
         <image name="pattern" width="800" height="600"/>
         <image name="rating50" width="106" height="18"/>
         <image name="topbarIcon" width="30" height="30"/>
+        <image name="voteNo" width="81" height="81"/>
+        <image name="voteYes" width="81" height="81"/>
         <image name="yelp-2c-outline" width="675" height="383"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Zyi-U4-CPW"/>
+        <segue reference="Pew-yA-Afz"/>
     </inferredMetricsTieBreakers>
 </document>

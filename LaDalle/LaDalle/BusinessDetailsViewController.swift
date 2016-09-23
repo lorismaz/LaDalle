@@ -16,6 +16,7 @@ class BusinessDetailsViewController: UIViewController, MKMapViewDelegate, UITabl
     var business: Business?
     var userLocation: CLLocation?
     var reviews: [Review] = [Review]()
+    var photos: [String] = []
     
     //MARK: Properties and Outlets
     @IBOutlet weak var businessMapView: MKMapView!
@@ -47,6 +48,20 @@ class BusinessDetailsViewController: UIViewController, MKMapViewDelegate, UITabl
                 
                 for review in reviews {
                     print("Review: \(review.text)")
+                    //self.businessReviewLabel.text = review.text
+                }
+                self.reviewTableView.reloadData()
+            }
+            
+        })
+        
+        currentBusiness.getPhotos(completionHandler: { (photos) in
+            
+            self.main.addOperation {
+                self.photos = photos
+                
+                for photo in photos {
+                    print("Photourl: \(photo)")
                     //self.businessReviewLabel.text = review.text
                 }
                 self.reviewTableView.reloadData()
