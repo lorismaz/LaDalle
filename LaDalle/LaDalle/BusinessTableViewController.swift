@@ -28,7 +28,10 @@ class BusinessTableViewController: UITableViewController {
         categoryNameLabel.text = currentCategory.title
         
         print(">>>let's do this>>>")
-
+        
+        self.tableView.backgroundView = UIImageView(image: UIImage(named: "o-2-blured"))
+        self.tableView.backgroundView?.clipsToBounds = true
+        
         reload()
     }
 
