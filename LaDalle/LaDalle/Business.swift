@@ -97,6 +97,25 @@ class Business: NSObject, MKAnnotation {
         return nil
     }
     
+    static func getImageAsync(from url: String, completionHandler: @escaping (UIImage) -> ()) {
+        
+        guard let imageUrl = URL(string: url) else { return  }
+        
+        do {
+            UIApplication.shared.isNetworkActivityIndicatorVisible = true
+            let imageData = try Data(contentsOf: imageUrl)
+            
+            guard let image = UIImage(data: imageData) else { return }
+            //return image
+            completionHandler(image)
+        } catch {
+            print("Could not create an image out of provided link")
+        }
+        
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+        return
+    }
+    
     static func getRatingImage(rating: Double) -> String {
         
         switch rating {

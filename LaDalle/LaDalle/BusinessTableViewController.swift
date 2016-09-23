@@ -95,19 +95,26 @@ class BusinessTableViewController: UITableViewController {
         let business = businesses[row]
         
         cell.businessNameLabel.text = business.name
-        
-        
-        //TODO: need 
+    
         async.addOperation {
             
-            if let image = Business.getImage(from: business.imageUrl) {
-                cell.businessImageView.image = image
-            }
+            Business.getImageAsync(from: business.imageUrl, completionHandler: { (image) in
+                
+                self.main.addOperation {
+                    if (tableView.indexPathsForVisibleRows?.contains(indexPath) ?? false) {
+                        
+                        let animation = {
+                            cell.businessImageView.image = image
+                        }
+                        
+                        UIView.transition(with: cell.businessImageView, duration: 0.8, options: .transitionCrossDissolve, animations: animation, completion: nil)
+                    }
+                }
+                
+            })
             
         }
         
-        
-
         return cell
     }
 
