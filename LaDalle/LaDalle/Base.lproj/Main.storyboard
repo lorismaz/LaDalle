@@ -36,7 +36,7 @@
                                                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="95" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jx3-jM-3xh">
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <view key="tableHeaderView" contentMode="scaleToFill" id="cDb-6X-AVu">
-                                                        <rect key="frame" x="0.0" y="0.0" width="338" height="350"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="337.5" height="350"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <subviews>
                                                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LB5-8a-CkX">
@@ -87,10 +87,10 @@
                                                     </view>
                                                     <prototypes>
                                                         <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ReviewCell" rowHeight="95" id="AhW-Id-9no" customClass="ReviewCell" customModule="La_Dalle" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="378" width="338" height="95"/>
+                                                            <rect key="frame" x="0.0" y="378" width="337.5" height="95"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="AhW-Id-9no" id="i7k-yv-aIF">
-                                                                <frame key="frameInset" width="338" height="95"/>
+                                                                <frame key="frameInset" width="337.5" height="95"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
                                                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Review content" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d8H-bt-ydI">
