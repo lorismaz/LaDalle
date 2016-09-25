@@ -31,7 +31,7 @@ class SwipeGameViewController: UIViewController {
     var photoArray: [Photo] = []
     var photoIndex: Int = 0
     var likes = [String:Int]()
-    let numberOfPhotosToDisplay = 10
+    let maxNumberOfPhotosToDisplay = 10 //0 for unlimited
 
     //MARK: Outlets and Actions
 
@@ -53,7 +53,7 @@ class SwipeGameViewController: UIViewController {
 
     @IBAction func discardTapped(_ sender: UIButton) {
 
-        displayNextImage()
+        displayNextStep()
     }
 
     //MARK: App cycle
@@ -75,20 +75,13 @@ class SwipeGameViewController: UIViewController {
 
     func updateLikes(for alias: String) {
         print("Updating likes for \(alias) by 1")
-        let numberOfPhotos = photoArray.count
+        
 
         self.likes[alias]! += 1
         print(likes)
-
-
-        if photoIndex < numberOfPhotos - 1  && photoIndex < numberOfPhotosToDisplay {
-            showNextImage()
-        } else {
-            print("🚀 Calculating prefered place then redirecting! ")
-            calculateBestPlace()
-        }
-
-
+        
+        displayNextStep()
+        
     }
 
     func calculateBestPlace() {
@@ -129,14 +122,27 @@ class SwipeGameViewController: UIViewController {
 
     }
 
-    func displayNextImage() {
+    func displayNextStep() {
+        
         let numberOfPhotos = photoArray.count
-
-        if photoIndex < numberOfPhotos - 1  && photoIndex < numberOfPhotosToDisplay {
-            showNextImage()
+        
+        if maxNumberOfPhotosToDisplay == 0 {
+            
+            if photoIndex < numberOfPhotos - 1 {
+                showNextImage()
+            } else {
+                print("🚀 Calculating prefered place then redirecting! ")
+                calculateBestPlace()
+            }
+            
         } else {
-            print("🚀 Calculating prefered place then redirecting! ")
-            calculateBestPlace()
+            
+            if photoIndex < numberOfPhotos - 1 && photoIndex < maxNumberOfPhotosToDisplay {
+                showNextImage()
+            } else {
+                print("🚀 Calculating prefered place then redirecting! ")
+                calculateBestPlace()
+            }
         }
 
     }
