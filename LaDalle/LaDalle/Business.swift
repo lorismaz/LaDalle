@@ -20,6 +20,7 @@ class Business: NSObject, MKAnnotation {
     let imageUrl: String
     let url: String
     var reviews: [Review] = []
+    var photos: [String] = []
     
     //MKAnnotation things
     var coordinate: CLLocationCoordinate2D
@@ -205,10 +206,10 @@ class Business: NSObject, MKAnnotation {
                     guard let review = Review.fromDictionary(dictionary: reviewDictionary) else { print("can't create a review out of the data"); return }
                     
                     arrayOfReviews.append(review)
-                    completionHandler(arrayOfReviews)
+                    
                     
                 }
-                
+                completionHandler(arrayOfReviews)
             } catch {
                 print("Could not get reviews")
                 return
@@ -291,10 +292,10 @@ class Business: NSObject, MKAnnotation {
                     guard let business = Business.fromDictionary(dictionary: businessDictionary) else { print("can't create a business out of the data"); return }
                     
                     arrayOfBusinesses.append(business)
-                    completionHandler(arrayOfBusinesses)
+                    
                     
                 }
-                
+                completionHandler(arrayOfBusinesses)
                 
                 //                                DispatchQueue.main.async {
                 //                                    // do something in the main queue
@@ -316,6 +317,88 @@ class Business: NSObject, MKAnnotation {
         
         return
         
+    }
+    
+    func getPhotos(completionHandler: @escaping ([String]) -> ()) {
+        
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        
+        print("➡️ Getting photos for business \(self.name)")
+        
+        var arrayOfPhotos: [String] = []
+        
+        let accessToken = valueForAPIKey(named: "YELP_API_ACCESS_TOKEN")
+        
+        let link = "https://api.yelp.com/v3/businesses/\(self.id)"
+        guard let escapedLink = link.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return }
+        //TODO: string by
+        
+        //set headers
+        let headers = [
+            "Authorization": "Bearer \(accessToken)"
+        ]
+        
+        guard let url = URL(string: escapedLink) else { print("This is not a correct url: \(escapedLink)");return }
+        
+        //set request
+        var request = URLRequest.init(url: url)
+        
+        request.httpMethod = "GET"
+        request.allHTTPHeaderFields = headers
+        
+        //        request.httpBody = bodyData.data(using: .utf8)
+        
+        
+        //create sharedSession
+        let sharedSession = URLSession.shared
+        
+        // setup completion handler
+        let completionHandler: (Data?, URLResponse?, Error?) -> Void = { data, response, error in
+            
+            guard let data = data, error == nil else {
+                // check for networking error
+                print("error=\(error)")
+                return
+            }
+            
+            if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {           // check for http errors
+                print("statusCode should be 200, but is \(httpStatus.statusCode)")
+                print("response = \(response)")
+            }
+            
+            //let responseString = String(data: data, encoding: .utf8)
+            //print("responseString = \(responseString)")
+            
+            do {
+                let jsonObject = try JSONSerialization.jsonObject(with: data, options:
+                    JSONSerialization.ReadingOptions.allowFragments)
+                
+                guard let result = jsonObject as? NSDictionary else { print("result is not a dictionary"); return }
+                
+                guard let photos = result["photos"] as? NSArray else { print("no photo array present"); return }
+                
+                for photoObject in photos {
+                    guard let photo = photoObject as? String else { return }
+                    arrayOfPhotos.append(photo)
+                    print("😉 \(photo)")
+                }
+                
+                completionHandler(arrayOfPhotos)
+                
+            } catch {
+                print("Could not get photos")
+                return
+            }
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
+        }
+        
+        // set dataTask
+        let dataTask = sharedSession.dataTask(with: request, completionHandler: completionHandler)
+        
+        //resume dataTask
+        dataTask.resume()
+        
+        return
     }
     
 }
