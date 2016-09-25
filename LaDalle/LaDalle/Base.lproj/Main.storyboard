@@ -33,7 +33,7 @@
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rOK-FE-qJv" customClass="DetailView" customModule="La_Dalle" customModuleProvider="target">
                                             <subviews>
-                                                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="95" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jx3-jM-3xh">
+                                                <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="95" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jx3-jM-3xh">
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <view key="tableHeaderView" contentMode="scaleToFill" id="cDb-6X-AVu">
                                                         <rect key="frame" x="0.0" y="0.0" width="337.5" height="350"/>
@@ -409,6 +409,11 @@
                                             <constraint firstAttribute="height" constant="50" id="v0G-w3-sxB"/>
                                         </constraints>
                                     </view>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="HP2-rW-qBU">
+                                        <frame key="frameInset" minX="158" minY="221" width="20" height="20"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="color" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    </activityIndicatorView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -464,6 +469,7 @@
                         </view>
                     </navigationItem>
                     <connections>
+                        <outlet property="activitySpinner" destination="HP2-rW-qBU" id="bZ5-ew-Uv4"/>
                         <outlet property="categoryNameLable" destination="w3g-ms-HwQ" id="i9h-9e-i03"/>
                         <outlet property="currentPhotoImageView" destination="bFa-aD-cE6" id="Bwy-bt-jhk"/>
                         <outlet property="questionLabel" destination="NEw-IE-xTy" id="qF1-qm-Ogw"/>
