@@ -187,7 +187,7 @@
 				TargetAttributes = {
 					AB33CCEA1D8C56EA002E4BA4 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = H69J6FK3WQ;
+						DevelopmentTeam = JS9SEB342A;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -369,7 +369,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = H69J6FK3WQ;
+				DEVELOPMENT_TEAM = JS9SEB342A;
 				INFOPLIST_FILE = LaDalle/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mazlabs.LaDalle;
@@ -382,7 +382,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = H69J6FK3WQ;
+				DEVELOPMENT_TEAM = JS9SEB342A;
 				INFOPLIST_FILE = LaDalle/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mazlabs.LaDalle;
