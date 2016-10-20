@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		AB05DB321D931A3100955498 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB05DB311D931A3100955498 /* DetailView.swift */; };
 		AB05DB341D931D0200955498 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AB05DB331D931D0200955498 /* Poppins-Regular.ttf */; };
+		AB1EDEF81DB9630800307EA9 /* La_DalleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1EDEF71DB9630800307EA9 /* La_DalleTests.swift */; };
 		AB33CCEF1D8C56EA002E4BA4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB33CCEE1D8C56EA002E4BA4 /* AppDelegate.swift */; };
 		AB33CCF41D8C56EA002E4BA4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB33CCF21D8C56EA002E4BA4 /* Main.storyboard */; };
 		AB33CCF61D8C56EA002E4BA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB33CCF51D8C56EA002E4BA4 /* Assets.xcassets */; };
@@ -31,9 +32,22 @@
 		ABA8239A1D90A8F600F618D2 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA823991D90A8F600F618D2 /* CategoryCell.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		AB1EDEFA1DB9630800307EA9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AB33CCE31D8C56EA002E4BA4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AB33CCEA1D8C56EA002E4BA4;
+			remoteInfo = "La Dalle";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		AB05DB311D931A3100955498 /* DetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		AB05DB331D931D0200955498 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
+		AB1EDEF51DB9630800307EA9 /* La DalleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "La DalleTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB1EDEF71DB9630800307EA9 /* La_DalleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = La_DalleTests.swift; sourceTree = "<group>"; };
+		AB1EDEF91DB9630800307EA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB33CCEB1D8C56EA002E4BA4 /* La Dalle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "La Dalle.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB33CCEE1D8C56EA002E4BA4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AB33CCF31D8C56EA002E4BA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -59,6 +73,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		AB1EDEF21DB9630800307EA9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AB33CCE81D8C56EA002E4BA4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -69,10 +90,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AB1EDEF61DB9630800307EA9 /* La DalleTests */ = {
+			isa = PBXGroup;
+			children = (
+				AB1EDEF71DB9630800307EA9 /* La_DalleTests.swift */,
+				AB1EDEF91DB9630800307EA9 /* Info.plist */,
+			);
+			path = "La DalleTests";
+			sourceTree = "<group>";
+		};
 		AB33CCE21D8C56EA002E4BA4 = {
 			isa = PBXGroup;
 			children = (
 				AB33CCED1D8C56EA002E4BA4 /* LaDalle */,
+				AB1EDEF61DB9630800307EA9 /* La DalleTests */,
 				AB33CCEC1D8C56EA002E4BA4 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -81,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				AB33CCEB1D8C56EA002E4BA4 /* La Dalle.app */,
+				AB1EDEF51DB9630800307EA9 /* La DalleTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -158,6 +190,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		AB1EDEF41DB9630800307EA9 /* La DalleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AB1EDEFC1DB9630800307EA9 /* Build configuration list for PBXNativeTarget "La DalleTests" */;
+			buildPhases = (
+				AB1EDEF11DB9630800307EA9 /* Sources */,
+				AB1EDEF21DB9630800307EA9 /* Frameworks */,
+				AB1EDEF31DB9630800307EA9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AB1EDEFB1DB9630800307EA9 /* PBXTargetDependency */,
+			);
+			name = "La DalleTests";
+			productName = "La DalleTests";
+			productReference = AB1EDEF51DB9630800307EA9 /* La DalleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		AB33CCEA1D8C56EA002E4BA4 /* La Dalle */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = AB33CCFD1D8C56EA002E4BA4 /* Build configuration list for PBXNativeTarget "La Dalle" */;
@@ -185,6 +235,12 @@
 				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Loris Mazloum";
 				TargetAttributes = {
+					AB1EDEF41DB9630800307EA9 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = JS9SEB342A;
+						ProvisioningStyle = Automatic;
+						TestTargetID = AB33CCEA1D8C56EA002E4BA4;
+					};
 					AB33CCEA1D8C56EA002E4BA4 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = JS9SEB342A;
@@ -206,11 +262,19 @@
 			projectRoot = "";
 			targets = (
 				AB33CCEA1D8C56EA002E4BA4 /* La Dalle */,
+				AB1EDEF41DB9630800307EA9 /* La DalleTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		AB1EDEF31DB9630800307EA9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AB33CCE91D8C56EA002E4BA4 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -227,6 +291,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		AB1EDEF11DB9630800307EA9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AB1EDEF81DB9630800307EA9 /* La_DalleTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AB33CCE71D8C56EA002E4BA4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -252,6 +324,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		AB1EDEFB1DB9630800307EA9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AB33CCEA1D8C56EA002E4BA4 /* La Dalle */;
+			targetProxy = AB1EDEFA1DB9630800307EA9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		AB33CCF21D8C56EA002E4BA4 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -272,6 +352,34 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		AB1EDEFD1DB9630800307EA9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = JS9SEB342A;
+				INFOPLIST_FILE = "La DalleTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mazlabs.La-DalleTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/La Dalle.app/La Dalle";
+			};
+			name = Debug;
+		};
+		AB1EDEFE1DB9630800307EA9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = JS9SEB342A;
+				INFOPLIST_FILE = "La DalleTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mazlabs.La-DalleTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/La Dalle.app/La Dalle";
+			};
+			name = Release;
+		};
 		AB33CCFB1D8C56EA002E4BA4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -398,6 +506,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		AB1EDEFC1DB9630800307EA9 /* Build configuration list for PBXNativeTarget "La DalleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AB1EDEFD1DB9630800307EA9 /* Debug */,
+				AB1EDEFE1DB9630800307EA9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		AB33CCE61D8C56EA002E4BA4 /* Build configuration list for PBXProject "LaDalle" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
