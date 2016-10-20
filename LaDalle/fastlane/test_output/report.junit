@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<testsuites name='La DalleTests.xctest' tests='2' failures='0'>
+  <testsuite name='La_DalleTests.La_DalleTests' tests='2' failures='0'>
+    <testcase classname='La_DalleTests.La_DalleTests' name='testGetRatingImages' time='0.003'/>
+    <testcase classname='La_DalleTests.La_DalleTests' name='testPerformanceExample' time='0.444'/>
+  </testsuite>
+</testsuites>
