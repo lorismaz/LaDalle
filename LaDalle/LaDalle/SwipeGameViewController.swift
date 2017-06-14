@@ -31,7 +31,7 @@ class SwipeGameViewController: UIViewController {
     var photoArray: [Photo] = []
     var photoIndex: Int = 0
     var likes = [String:Int]()
-    let maxNumberOfPhotosToDisplay = 10 //0 for unlimited
+    let maxNumberOfPhotosToDisplay = 5 //0 for unlimited
 
     //MARK: Outlets and Actions
 
